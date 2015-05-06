@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="22dp"
+        android:layout_marginTop="10dp"
+        android:textColor="#898989"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
+    <com.play.treasure.ui.publicplays.MGridViewPub
+        android:id="@+id/category_grid"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/title"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="4dp"
+        android:horizontalSpacing="4dp"
+        android:numColumns="4"
+        android:paddingBottom="8dp"
+        android:verticalSpacing="4dp" />
+
+</RelativeLayout><!-- From: file:/Users/jhqiu/Desktop/paibao/paibao/Paibao/PlayingTreasure/res/layout/view_category_checker_pub.xml -->

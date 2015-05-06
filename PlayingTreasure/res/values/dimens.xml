@@ -1,0 +1,106 @@
+<resources>
+
+
+    <dimen name="abc_text_size_title_material">14dip</dimen>
+
+
+    <dimen name="abc_text_size_menu_material">14dip</dimen>
+    <dimen name="abc_text_size_tuji">20dip</dimen>
+
+    <!-- 新增加部分 -->
+
+    <dimen name="mall_viewpager_space">5dp</dimen>
+
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="button_text_size">14sp</dimen>
+    <dimen name="expand_tab_item_height">45dp</dimen>
+    <dimen name="expand_tab_eara_height">380dp</dimen>
+    <dimen name="head_bar_height">45dp</dimen>
+    <dimen name="detail_banner_head">200dp</dimen>
+    <dimen name="standard_padding">8dip</dimen>
+    <dimen name="half_padding">4dip</dimen>
+    <dimen name="ios_public_space_20px">10dp</dimen>
+    <dimen name="pub_margin_or_padding_space_ten">10dp</dimen>
+    <dimen name="pub_margin_or_padding_space_thirteen">13dp</dimen>
+    <dimen name="pub_margin_or_padding_space_forty">40dp</dimen>
+    <dimen name="pub_margin_or_padding_space_eight">8dp</dimen>
+    <dimen name="pub_margin_or_padding_space_sixteen">16dp</dimen>
+    <dimen name="pub_margin_or_padding_space_half_of_one">0.5dp</dimen>
+    <dimen name="ios_public_space_130px">65dp</dimen>
+
+    <!-- android高保真标注字体 -->
+    <dimen name="android_public_textsize_14pt">12sp</dimen>
+    <dimen name="android_public_textsize_16pt">14sp</dimen>
+    <dimen name="android_public_textsize_18pt">16sp</dimen>
+    <dimen name="android_public_textsize_20pt">18sp</dimen>
+    <dimen name="android_public_textsize_24pt">21sp</dimen>
+    <dimen name="android_public_textsize_26pt">23sp</dimen>
+    <dimen name="android_public_textsize_42pt">37sp</dimen>
+    <dimen name="android_public_space_20px">15dp</dimen>
+    <dimen name="android_public_textsize_22pt">20sp</dimen>
+    <dimen name="android_public_space_14px">11dp</dimen>
+
+    <!-- space -->
+    <dimen name="pub_margin_or_padding_space_one">1dp</dimen>
+    <dimen name="pub_margin_or_padding_space_two">2dp</dimen>
+    <dimen name="pub_margin_or_padding_space_three">3dp</dimen>
+    <dimen name="pub_margin_or_padding_space_four">4dp</dimen>
+    <dimen name="pub_margin_or_padding_space_five">5dp</dimen>
+    <dimen name="pub_margin_or_padding_space_six">6dp</dimen>
+    <dimen name="pub_margin_or_padding_space_seven">7dp</dimen>
+    <dimen name="pub_margin_or_padding_space_nine">9dp</dimen>
+    <dimen name="pub_margin_or_padding_space_eleven">11dp</dimen>
+    <dimen name="pub_margin_or_padding_space_twelev">12dp</dimen>
+    <dimen name="pub_margin_or_padding_space_fourteen">14dp</dimen>
+    <dimen name="pub_margin_or_padding_space_fifteen">15dp</dimen>
+    <dimen name="pub_margin_or_padding_space_seventeen">17dp</dimen>
+    <dimen name="pub_margin_or_padding_space_eighteen">18dp</dimen>
+    <dimen name="pub_margin_or_padding_space_nineteen">19dp</dimen>
+    <dimen name="pub_margin_or_padding_space_twenty">20dp</dimen>
+    <dimen name="pub_margin_or_padding_space_twenty_one">21dp</dimen>
+    <dimen name="pub_margin_or_padding_space_twenty_two">22dp</dimen>
+    <dimen name="pub_margin_or_padding_space_twenty_three">23dp</dimen>
+    <dimen name="pub_margin_or_padding_space_twenty_four">24dp</dimen>
+    <dimen name="pub_margin_or_padding_space_twenty_five">25dp</dimen>
+    <dimen name="pub_margin_or_padding_space_twenty_six">26dp</dimen>
+    <dimen name="pub_margin_or_padding_space_twenty_seven">27dp</dimen>
+    <dimen name="pub_margin_or_padding_space_twenty_eight">28dp</dimen>
+    <dimen name="pub_margin_or_padding_space_twenty_nine">29dp</dimen>
+    <dimen name="pub_margin_or_padding_space_thirty">30dp</dimen>
+    <dimen name="pub_margin_or_padding_space_thirty_five">35dp</dimen>
+    <dimen name="pub_margin_or_padding_space_forty_five">45dp</dimen>
+    <dimen name="pub_margin_or_padding_space_fifty">50dp</dimen>
+    <dimen name="pub_margin_or_padding_space_fifty_five">55dp</dimen>
+    <dimen name="pub_margin_or_padding_space_sixty">60dp</dimen>
+    <dimen name="pub_margin_or_padding_space_sixty_five">65dp</dimen>
+    <dimen name="pub_margin_or_padding_space_seventy">70dp</dimen>
+    <dimen name="pub_margin_or_padding_space_seventy_five">75dp</dimen>
+    <dimen name="pub_margin_or_padding_space_eighty_two">82dp</dimen>
+    <dimen name="pub_margin_or_padding_space_eighty_five">85dp</dimen>
+    <dimen name="pub_margin_or_padding_space_ninety">90dp</dimen>
+    <dimen name="pub_margin_or_padding_space_ninety_five">95dp</dimen>
+    <dimen name="pub_margin_or_padding_space_one_hundred">100dp</dimen>
+    <dimen name="pub_margin_or_padding_space_two_hundred">200dp</dimen>
+    <dimen name="pub_textsize_eight">8sp</dimen>
+    <dimen name="pub_textsize_nine">9sp</dimen>
+    <dimen name="pub_textsize_ten">10sp</dimen>
+    <dimen name="pub_textsize_eleven">11sp</dimen>
+    <dimen name="pub_textsize_twelev">12sp</dimen>
+    <dimen name="pub_textsize_thirteen">13sp</dimen>
+    <dimen name="pub_textsize_fourteen">14sp</dimen>
+    <dimen name="pub_textsize_fifteen">15sp</dimen>
+    <dimen name="pub_textsize_sixteen">16sp</dimen>
+    <dimen name="pub_textsize_seventeen">17sp</dimen>
+    <dimen name="pub_textsize_eighteen">18sp</dimen>
+    <dimen name="pub_textsize_nineteen">19sp</dimen>
+    <dimen name="pub_textsize_twenty">20sp</dimen>
+    <dimen name="pub_textsize_twenty_one">21sp</dimen>
+    <dimen name="pub_textsize_twenty_two">22sp</dimen>
+    <dimen name="pub_textsize_twenty_three">23sp</dimen>
+    <dimen name="pub_textsize_twenty_four">24sp</dimen>
+    <dimen name="pub_textsize_twenty_five">25sp</dimen>
+    <dimen name="pub_textsize_twenty_eight">28sp</dimen>
+
+</resources>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_focused="true" android:drawable="@drawable/searchkuang" />
+    <item android:drawable="@drawable/searchkuang" />
+</selector>
+<!-- From: file:/Users/jhqiu/Desktop/paibao/paibao/Paibao/PlayingTreasure/res/drawable/my_edittext.xml -->

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+     >
+
+    <RelativeLayout
+        android:id="@+id/top_title_bar"
+        android:layout_alignParentTop="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/top_title_bar" >
+
+        <ImageView
+            android:id="@+id/title_bar_left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:padding="10dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="13dp"
+            
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/title_bar_center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:textColor="#FFFFFF"
+            android:textSize="24sp" />
+
+        <ImageView
+            android:id="@+id/title_bar_right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:padding="10dp"
+            android:layout_marginRight="13dp"
+            android:visibility="gone" />
+    </RelativeLayout>
+
+    <EditText
+        android:id="@+id/content"
+        android:layout_below="@id/top_title_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="18dp"
+        android:gravity="top"
+        android:hint="写出你想说的话..."
+        android:inputType="textMultiLine"
+        android:lines="15"
+        android:minLines="12"
+        android:textSize="18sp" />
+
+    <Button
+        android:id="@+id/submit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/top_title_bar"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:text="提交"
+        android:textColor="#ffffff"
+        android:textSize="18sp" />
+
+</RelativeLayout><!-- From: file:/Users/jhqiu/Desktop/paibao/paibao/Paibao/PlayingTreasure/res/layout/activity_feedback.xml -->

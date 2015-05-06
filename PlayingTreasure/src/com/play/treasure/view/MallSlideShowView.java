@@ -1,0 +1,372 @@
+package com.play.treasure.view;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
+import org.json.JSONArray;
+import org.json.JSONException;
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.os.AsyncTask;
+import android.os.Handler;
+import android.os.Message;
+import android.os.Parcelable;
+import android.support.v4.view.PagerAdapter;
+import android.support.v4.view.ViewPager;
+import android.support.v4.view.ViewPager.OnPageChangeListener;
+import android.util.AttributeSet;
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.FrameLayout;
+import android.widget.ImageView;
+import android.widget.ImageView.ScaleType;
+import android.widget.LinearLayout;
+
+import com.lidroid.xutils.BitmapUtils;
+import com.lidroid.xutils.bitmap.BitmapDisplayConfig;
+import com.lidroid.xutils.bitmap.callback.BitmapLoadFrom;
+import com.lidroid.xutils.bitmap.callback.DefaultBitmapLoadCallBack;
+import com.nostra13.universalimageloader.cache.disc.naming.Md5FileNameGenerator;
+import com.nostra13.universalimageloader.core.ImageLoader;
+import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
+import com.nostra13.universalimageloader.core.assist.QueueProcessingType;
+import com.play.treasure.Functions;
+import com.play.treasure.PlayApplication;
+import com.play.treasure.R;
+import com.play.treasure.model.Banner;
+import com.play.treasure.network.NetworkConfig;
+import com.play.treasure.network.model.NetworkBeanArray;
+import com.play.treasure.waterfall.WaterfallAdapter.CustomBitmapLoadCallBack;
+
+
+/** 
+* @ClassName: SlideShowView
+* @Description: 详情页banner
+* @author wangchao29
+* @date 2014年12月4日 下午11:07:54
+* 
+*/ 
+public class MallSlideShowView extends FrameLayout 
+{
+
+	//
+	private ImageLoader imageLoader = ImageLoader.getInstance();
+	private final static boolean isAutoPlay = true;
+	
+	private List<String> imageUrls;
+
+	private List<ImageView> imageViewsList;
+
+	private List<View> dotViewsList;
+
+	private ViewPager viewPager;
+
+	private int currentItem = 0;
+
+	private ScheduledExecutorService scheduledExecutorService;
+
+	private Context context;
+	
+	private PlayApplication mApplication;
+	
+	private BitmapUtils bitmapUtils;
+
+	@SuppressLint("HandlerLeak")
+	private Handler handler = new Handler() 
+	{
+		@Override
+		public void handleMessage(Message msg) 
+		{
+			super.handleMessage(msg);
+			viewPager.setCurrentItem(currentItem);
+		}
+	};
+
+	public MallSlideShowView(Context context) 
+	{
+		this(context, null);
+	}
+
+	public MallSlideShowView(Context context, AttributeSet attrs) 
+	{
+		this(context, attrs, 0);
+	}
+
+	public MallSlideShowView(Context context, AttributeSet attrs, int defStyle) 
+	{
+		super(context, attrs, defStyle);
+		this.context = context;
+	//	initImageLoader(context);
+		bitmapUtils = Functions.initbimapxUtils(bitmapUtils, context);
+
+		initData();
+		if (isAutoPlay) 
+		{
+			startPlay();
+		}
+
+	}
+
+	private void startPlay() 
+	{
+		scheduledExecutorService = Executors.newSingleThreadScheduledExecutor();
+		scheduledExecutorService.scheduleAtFixedRate(new SlideShowTask(), 1, 4,TimeUnit.SECONDS);
+	}
+
+	private void initData() 
+	{
+		imageViewsList = new ArrayList<ImageView>();
+		dotViewsList = new ArrayList<View>();
+        imageUrls = new ArrayList<String>();
+
+        new GetListTask().execute();
+	}
+
+	private void initUI(Context context) 
+	{
+		if (imageUrls == null || imageUrls.size() == 0)
+			return;
+
+		LayoutInflater.from(context).inflate(R.layout.layout_slideshow, this,true);
+
+		LinearLayout dotLayout = (LinearLayout) findViewById(R.id.dotLayout);
+		dotLayout.removeAllViews();
+
+		for (int i = 0; i < imageUrls.size(); i++) 
+		{
+			ImageView view = new ImageView(context);
+			view.setTag(imageUrls.get(i));
+			view.setScaleType(ScaleType.FIT_XY);
+			view.measure(MeasureSpec.AT_MOST, MeasureSpec.AT_MOST);
+			imageViewsList.add(view);
+
+			ImageView dotView = new ImageView(context);
+			LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
+			params.leftMargin = 4;
+			params.rightMargin = 4;
+			dotLayout.addView(dotView, params);
+			dotViewsList.add(dotView);
+		}
+
+		viewPager = (ViewPager) findViewById(R.id.viewPager);
+		viewPager.setFocusable(true);
+
+		viewPager.setAdapter(new MyPagerAdapter());
+		viewPager.setOnPageChangeListener(new MyPageChangeListener());
+	}
+
+	private class MyPagerAdapter extends PagerAdapter 
+	{
+		@Override
+		public void destroyItem(View container, int position, Object object) 
+		{
+			((ViewPager) container).removeView(imageViewsList.get(position));
+		}
+
+		@Override
+		public Object instantiateItem(View container, int position) 
+		{
+			ImageView imageView = imageViewsList.get(position);
+
+			bitmapUtils.display(imageView, imageView.getTag().toString(),
+				 	new CustomBitmapLoadCallBack(imageView));
+			
+			//bu.displayImage(imageView.getTag() + "", imageView);
+
+			((ViewPager) container).addView(imageViewsList.get(position));
+			return imageViewsList.get(position);
+		}
+
+		@Override
+		public int getCount() 
+		{
+			return imageViewsList.size();
+		}
+
+		@Override
+		public boolean isViewFromObject(View arg0, Object arg1)
+		{
+			return arg0 == arg1;
+		}
+
+		@Override
+		public void restoreState(Parcelable arg0, ClassLoader arg1) 
+		{
+
+		}
+
+		@Override
+		public Parcelable saveState() 
+		{
+			return null;
+		}
+
+		@Override
+		public void startUpdate(View arg0) 
+		{
+
+		}
+
+		@Override
+		public void finishUpdate(View arg0) 
+		{
+		}
+
+	}
+
+	private class MyPageChangeListener implements OnPageChangeListener 
+	{
+		boolean isAutoPlay = false;
+
+		@Override
+		public void onPageScrollStateChanged(int arg0) 
+		{
+			switch (arg0) 
+			{
+			case 1:
+				isAutoPlay = false;
+				break;
+			case 2:
+				isAutoPlay = true;
+				break;
+			case 0:
+				if (viewPager.getCurrentItem() == viewPager.getAdapter()
+						.getCount() - 1 && !isAutoPlay) 
+				{
+					viewPager.setCurrentItem(0);
+				}
+				else if (viewPager.getCurrentItem() == 0 && !isAutoPlay) 
+				{
+					viewPager.setCurrentItem(viewPager.getAdapter().getCount() - 1);
+				}
+				break;
+			}
+		}
+
+		@Override
+		public void onPageScrolled(int arg0, float arg1, int arg2) 
+		{
+		}
+
+		@Override
+		public void onPageSelected(int pos) 
+		{
+			currentItem = pos;
+			for (int i = 0; i < dotViewsList.size(); i++) 
+			{
+				if (i == pos) 
+				{
+					((View) dotViewsList.get(pos)).setBackgroundResource(R.drawable.dot_focus);
+				} 
+				else 
+				{
+					((View) dotViewsList.get(i)).setBackgroundResource(R.drawable.dot_blur);
+				}
+			}
+		}
+
+	}
+
+	private class SlideShowTask implements Runnable 
+	{
+		@Override
+		public void run() 
+		{
+			synchronized (viewPager) 
+			{
+				currentItem = (currentItem + 1) % imageViewsList.size();
+				handler.obtainMessage().sendToTarget();
+			}
+		}
+	}
+
+	private class GetListTask extends AsyncTask<Void, Void, NetworkBeanArray>
+	{
+
+		/** (非 Javadoc) 
+		* Title: doInBackground
+		* Description:
+		* @param params
+		* @return
+		* @see android.os.AsyncTask#doInBackground(java.lang.Object[])
+		*/ 
+		@Override
+		protected NetworkBeanArray doInBackground(Void... params) 
+		{
+			mApplication = PlayApplication.getApplication();
+			try
+			{
+				return mApplication.getNetApi().detailImg(mApplication.getBannerId());
+			}
+			catch(Exception ex)
+			{
+				ex.printStackTrace();
+			}
+			return null;
+		}
+
+
+		@Override
+		protected void onPostExecute(NetworkBeanArray result) 
+		{
+			super.onPostExecute(result);
+			if (result!=null) 
+			{
+				try 
+				{
+					System.out.println(result.getResult());
+					JSONArray json = new JSONArray(result.getResult());
+					Banner banner = null;
+					List<Banner> bannerList = new ArrayList<Banner>();
+					List<String> urlList = new ArrayList<String>();
+					for(int i=0;i<json.length();i++)
+					{
+						banner = new Banner(json.getJSONObject(i));
+						bannerList.add(banner);
+						urlList.add(NetworkConfig.baseImgUrl+bannerList.get(i).getImgUrl());
+					}
+					imageUrls.addAll(urlList);
+				}
+				catch (JSONException e) 
+				{
+					e.printStackTrace();
+				}
+				initUI(context);
+			}
+		}
+
+	}
+
+	 public class CustomBitmapLoadCallBack extends DefaultBitmapLoadCallBack<ImageView> {
+	       private final View holder;
+
+	       public CustomBitmapLoadCallBack(View holder) {
+	           this.holder = holder;
+	       }
+	       @Override
+	       public void onLoading(ImageView container, String uri, BitmapDisplayConfig config, long total, long current) {
+	       
+	       }
+
+	       @Override
+	       public void onLoadCompleted(ImageView container, String uri, Bitmap bitmap, BitmapDisplayConfig config, BitmapLoadFrom from) {
+	           //super.onLoadCompleted(container, uri, bitmap, config, from);
+	           Functions.fadeInDisplayA(container, context,bitmap,Functions.sw);
+	       }
+	   }
+	    public static String ToDBC(String input) {  
+	        char[] c = input.toCharArray();  
+	        for (int i = 0; i< c.length; i++) {  
+	            if (c[i] == 12288) {  
+	              c[i] = (char) 32;  
+	              continue;  
+	            }if (c[i]> 65280&& c[i]< 65375)  
+	               c[i] = (char) (c[i] - 65248);  
+	            }  
+	        return new String(c);  
+	     }
+}

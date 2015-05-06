@@ -1,0 +1,210 @@
+/**
+ * @Title: UiUtils.java
+ * @Package net.iquickly.superutils.utils
+ * @Description: TODO(用一句话描述该文件做什么)
+ * @author BuShiJie bushijie33@gmail.com
+ * @date 2014-7-5 下午8:33:07
+ * @version V3.0
+ */
+package com.bureak.tuxuanandroid.utils;
+
+/**
+ * @ClassName: UiUtils
+ * @Description: 计算屏幕宽高等等
+ * @author BuShiJie bushijie33@gmail.com
+ * @date 2014-7-5 下午8:33:07
+ * 
+ */
+import java.lang.reflect.Method;
+
+import android.app.Activity;
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.Rect;
+import android.util.DisplayMetrics;
+import android.view.Display;
+import android.view.Window;
+import android.widget.ImageView;
+import android.widget.LinearLayout.LayoutParams;
+
+public class UiUtils {
+
+    public static void fitWidth(Activity activity, Bitmap bitmap, ImageView imageView) {
+        if (bitmap == null || imageView == null || activity == null) {
+            return;
+        }
+        int orgWid = bitmap.getWidth();
+        int orgHeight = bitmap.getHeight();
+
+        int screenWidth = activity.getWindowManager().getDefaultDisplay().getWidth(); // 屏幕宽（像素，如：480px）
+        // int screenHeight =
+        // getWindowManager().getDefaultDisplay().getHeight(); // 屏幕高（像素，如：800p）
+
+        int newWid = screenWidth;
+        int newHeight = (int) ((double) newWid / (double) orgWid * (double) orgHeight + 0.5f);
+
+        LayoutParams params = (LayoutParams) imageView.getLayoutParams();
+        params.width = newWid;
+        params.height = newHeight;
+        imageView.setLayoutParams(params);
+        imageView.setImageBitmap(bitmap);
+    }
+
+    /**
+     * 获取标题栏的高度
+     * 
+     * @param activity
+     * @return
+     */
+    public static int getTitleHeight(Activity activity) {
+        Rect rect = new Rect();
+        Window window = activity.getWindow();
+        window.getDecorView().getWindowVisibleDisplayFrame(rect);
+        int statusBarHeight = rect.top;
+        int contentViewTop = window.findViewById(Window.ID_ANDROID_CONTENT).getTop();
+        int titleBarHeight = contentViewTop - statusBarHeight;
+
+        return titleBarHeight;
+    }
+
+    /**
+     * 
+     * 获取状态栏高度
+     * 
+     * @param activity
+     * @return
+     */
+    public static int getStateHeight(Activity activity) {
+        Rect rect = new Rect();
+        activity.getWindow().getDecorView().getWindowVisibleDisplayFrame(rect);
+        return rect.top;
+    }
+
+    /**
+     * 获取屏幕宽高
+     * 
+     * @param activity
+     * @return int[0] 宽，int[1]高
+     */
+    public static int[] getScreenWidthAndSizeInPx(Activity activity) {
+        DisplayMetrics displayMetrics = new DisplayMetrics();
+        activity.getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
+        int[] size = new int[2];
+        size[0] = displayMetrics.widthPixels;
+        size[1] = displayMetrics.heightPixels;
+        return size;
+    }
+
+    /**
+     * 获取导航栏高度
+     * 
+     * @param
+     * @return
+     * @date 2014年3月21日
+     * @author trs
+     */
+    /**
+     * 获取屏幕宽高
+     * 
+     * @param activity
+     * @return int[0] 宽，int[1]高
+     */
+    public static int getNavigationBarHeight(Activity activity) {
+
+        int res = getWindowsHeight(activity) - getScreenWidthAndSizeInPx(activity)[1] - getStateHeight(activity) - getTitleHeight(activity);
+
+        return res;
+    }
+
+    /**
+     * 获取屏幕区域大小
+     * 
+     * @param
+     * @return
+     * @date 2014年3月21日
+     * @author trs
+     */
+    public static int getWindowsHeight(Activity activity) {
+
+        String dpi = null;
+        Display display = activity.getWindowManager().getDefaultDisplay();
+        DisplayMetrics dm = new DisplayMetrics();
+        @SuppressWarnings("rawtypes")
+        Class c;
+        try {
+            c = Class.forName("android.view.Display");
+            @SuppressWarnings("unchecked")
+            Method method = c.getMethod("getRealMetrics", DisplayMetrics.class);
+            method.invoke(display, dm);
+            dpi = dm.widthPixels + "*" + dm.heightPixels;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return 0;
+        }
+        return dm.heightPixels;
+    }
+
+    /**
+     * @Title: 获得图片像素值
+     * @Description:
+     * @param @param bit 设定文件
+     * @return int[] ragb
+     * @throws
+     */
+    public static int[] getBitmapARGB(Bitmap bit) {
+        // 其中getPixels中第三个参数要为图片的宽度
+
+        int[] pixels = new int[bit.getWidth() * bit.getHeight()];// 保存所有的像素的数组，图片宽×高
+        int[] ARGB = new int[4];
+        bit.getPixels(pixels, 0, bit.getWidth(), 0, 0, bit.getWidth(), bit.getHeight());
+        for (int i = 0; i < pixels.length; i++) {
+            int clr = pixels[i];
+            ARGB[0] = (clr & 0x00ff0000) >> 16; // 取高两位 red
+            ARGB[1] = (clr & 0x0000ff00) >> 8; // 取中两位 green
+            ARGB[2] = clr & 0x000000ff; // 取低两位 buue
+            ARGB[3] = (clr & 0xff000000) >> 24; // 透明度 alpha
+            System.out.println("a=" + ARGB[0] + ",r=" + ARGB[1] + ",g=" + ARGB[2] + ",b=" + ARGB[3]);
+        }
+        return ARGB;
+    }
+
+    /**
+     * @Title: 获得图片像素值
+     * @Description:
+     * @param @param bit 设定文件
+     * @return String
+     * @throws
+     */
+    public String getBitmapARGBString(Bitmap bit) {
+        // 其中getPixels中第三个参数要为图片的宽度
+
+        int[] pixels = new int[bit.getWidth() * bit.getHeight()];// 保存所有的像素的数组，图片宽×高
+        int[] ARGB = new int[4];
+        bit.getPixels(pixels, 0, bit.getWidth(), 0, 0, bit.getWidth(), bit.getHeight());
+        for (int i = 0; i < pixels.length; i++) {
+            int clr = pixels[i];
+            ARGB[0] = (clr & 0x00ff0000) >> 16; // 取高两位 red
+            ARGB[1] = (clr & 0x0000ff00) >> 8; // 取中两位 green
+            ARGB[2] = clr & 0x000000ff; // 取低两位 bule
+            ARGB[3] = (clr & 0xff000000) >> 24; // 透明度 alpha
+
+        }
+        return ARGB[0] + "" + ARGB[1] + "" + ARGB[2] + "" + ARGB[3];
+    }
+
+    /**
+     * 根据手机的分辨率从 dip 的单位 转成为 px(像素)
+     */
+    public static int dip2px(Context context, float dpValue) {
+        final float scale = context.getResources().getDisplayMetrics().density;
+        return (int) (dpValue * scale + 0.5f);
+    }
+
+    /**
+     * 根据手机的分辨率从 px(像素) 的单位 转成为 dp
+     */
+    public static int px2dip(Context context, float pxValue) {
+        final float scale = context.getResources().getDisplayMetrics().density;
+        return (int) (pxValue / scale + 0.5f);
+    }
+}

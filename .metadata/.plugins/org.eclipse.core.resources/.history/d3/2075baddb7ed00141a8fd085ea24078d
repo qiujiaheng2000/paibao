@@ -1,0 +1,368 @@
+package com.play.treasure;
+
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Color;
+import android.graphics.Matrix;
+import android.graphics.drawable.ColorDrawable;
+import android.os.AsyncTask;
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
+import android.support.v4.app.Fragment;
+import android.text.format.DateUtils;
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.MotionEvent;
+import android.view.View;
+import android.view.View.OnTouchListener;
+import android.view.ViewGroup;
+import android.view.WindowManager;
+import android.widget.AbsListView;
+import android.widget.AbsListView.OnScrollListener;
+import android.widget.AdapterView;
+import android.widget.BaseAdapter;
+import android.widget.ImageView;
+import android.widget.ImageView.ScaleType;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+
+import com.bureak.common.ImageListAdapter;
+import com.etsy.android.grid.StaggeredGridView;
+import com.etsy.android.grid.util.DynamicHeightImageView;
+import com.handmark.pulltorefresh.library.PullToRefreshBase;
+import com.handmark.pulltorefresh.library.PullToRefreshBase.Mode;
+import com.handmark.pulltorefresh.library.PullToRefreshBase.OnRefreshListener;
+import com.handmark.pulltorefresh.library.PullToRefreshStaggeredGridView;
+import com.lidroid.xutils.BitmapUtils;
+import com.lidroid.xutils.HttpUtils;
+import com.lidroid.xutils.bitmap.BitmapDisplayConfig;
+import com.lidroid.xutils.bitmap.callback.BitmapLoadFrom;
+import com.lidroid.xutils.bitmap.callback.DefaultBitmapLoadCallBack;
+import com.lidroid.xutils.exception.HttpException;
+import com.lidroid.xutils.http.RequestParams;
+import com.lidroid.xutils.http.ResponseInfo;
+import com.lidroid.xutils.http.callback.RequestCallBack;
+import com.lidroid.xutils.http.client.HttpRequest;
+import com.play.treasure.fragment.category.ZhangYanFragment.WaterfallTask;
+import com.play.treasure.model.Waterfall;
+import com.play.treasure.network.NetworkConfig;
+import com.play.treasure.network.model.NetworkBeanArray;
+import com.play.treasure.utils.CommonProgressDialog;
+import com.play.treasure.waterfall.WaterfallAdapter;
+@SuppressWarnings("unused")
+public class FirstFragment extends Fragment {
+
+	private StaggeredGridView mGridView;
+	//private WaterfallAdapter mAdapter;
+	private ImageListAdapter mAdapter;
+	private PlayApplication mApplication;
+	private CommonProgressDialog progressDialog;
+	
+	
+	private Context context;
+	private View view;
+	
+    String ccid;
+    String defaultCid="0";
+	protected boolean isBottemFlag = false;
+	protected int mStart =0;
+	protected int  mEnd  =5;
+	private boolean isRefrshing = false;
+	int cccid;
+	
+	private StaggeredGridView lvShow = null;
+	PullToRefreshStaggeredGridView mPullRefreshListView;
+//	private LinkedList<String> mListItems;
+	//private ListViewAdapter mAdapter;
+	float o_y = 0;
+	private LinkedList<Waterfall> founctionlist = new LinkedList<Waterfall>();
+	private LinkedList<Waterfall> temp = new LinkedList<Waterfall>();
+    private String  url  = "index.php/Home/Index/index";
+    int p=1;
+    String x="116.341405",y="40.051004";
+	String post_cate="0";
+    
+	private BitmapUtils bitmapUtils;
+	protected int scroll_y;
+	private Handler mHandler = new Handler(){
+		
+		@Override
+		public void handleMessage(Message msg) {
+			// TODO Auto-generated method stub
+			if(msg.what==1)
+			{
+				int flag = mPullRefreshListView.getScrollX();
+				Log.i("scroll-flag", ""+flag);
+				
+			}
+			super.handleMessage(msg);
+		}
+		
+	};
+    public static FirstFragment newInstance(String s) {
+    	FirstFragment newFragment = new FirstFragment();
+        Bundle bundle = new Bundle();
+        bundle.putString("cid", s);
+        newFragment.setArguments(bundle);
+        return newFragment;
+
+    }
+    
+	@Override
+	public void onCreate(Bundle savedInstanceState) {
+		// TODO Auto-generated method stub
+		super.onCreate(savedInstanceState);
+		context = getActivity().getApplicationContext();
+		Bundle args = getArguments();
+		Log.i("create", "create");
+		mApplication = PlayApplication.getApplication();
+
+		progressDialog = CommonProgressDialog.getInstance(context);
+		ccid = args != null ? args.getString("cid") : defaultCid;
+	    post_cate = ccid;
+	}
+
+	@SuppressLint("NewApi")
+	@Override
+	public View onCreateView(LayoutInflater inflater, ViewGroup container,
+			Bundle savedInstanceState) {
+		// TODO Auto-generated method stub
+		view = inflater.inflate(R.layout.fragment_com, container,false);		
+		mPullRefreshListView = (PullToRefreshStaggeredGridView) view.findViewById(R.id.grid_view);
+		cccid = Integer.parseInt(ccid);
+		initListView();
+	//	getData();
+	//	mAdapter = new WaterfallAdapter(getActivity());
+		mAdapter = new ImageListAdapter(getActivity(),new ArrayList<Waterfall>());
+		mGridView.setAdapter(mAdapter);
+		mGridView.setOnItemClickListener(mAdapter);
+		new WaterfallTask().execute();
+	 	//getListMasData(p,x,y,post_cate);;
+		Log.i("onCreateView", "onCreateView");
+		return view;
+	}
+	@SuppressLint("NewApi")
+	public void initListView()
+	{
+		//mListItems = new LinkedList<String>();
+		//mListItems.addAll(Arrays.asList(mStrings));
+		//mAdapter = new ArrayAdapter<String>(this,
+		//		android.R.layout.simple_list_item_1, mListItems);
+	//	mAdapter = new ListViewAdapter(this.getActivity());
+		mPullRefreshListView.setMode(Mode.BOTH);
+		
+		mPullRefreshListView.getLoadingLayoutProxy(true, false).setLastUpdatedLabel("上次刷新时间");
+		mPullRefreshListView.getLoadingLayoutProxy(true, false).setPullLabel("");
+		mPullRefreshListView.getLoadingLayoutProxy(true, false).setRefreshingLabel("正在刷新...");
+		mPullRefreshListView.getLoadingLayoutProxy(true, false).setReleaseLabel("松开刷新");
+		
+		mPullRefreshListView.getLoadingLayoutProxy(false, true).setLastUpdatedLabel("上次加载时间");
+		mPullRefreshListView.getLoadingLayoutProxy(false, true).setPullLabel("");
+		mPullRefreshListView.getLoadingLayoutProxy(false, true).setRefreshingLabel("正在加载...");
+		mPullRefreshListView.getLoadingLayoutProxy(false, true).setReleaseLabel("松开加载");
+		
+		mGridView = mPullRefreshListView.getRefreshableView();
+	   /* mGridView.setOnTouchListener(new OnTouchListener(){
+
+			@Override
+			public boolean onTouch(View arg0, MotionEvent event) {
+				// TODO Auto-generated method stub
+			//	isScoll = false;
+				float n_y;
+				int eventAction = event.getAction();
+				//int y = (int) event.getRawY();
+				switch (eventAction) {
+				case MotionEvent.ACTION_UP:
+				Log.i("uevent", ""+event.getY());
+			//	n_y
+			    break;
+				case MotionEvent.ACTION_DOWN:
+				Log.i("devent", ""+event.getY());
+				//o_y  = event.getY();
+			    break;		
+			    case MotionEvent.ACTION_MOVE:
+			    Log.i("mevent", ""+event.getY());
+			    if(o_y==0)
+			    {
+			    	o_y = event.getY();
+			    }
+			    n_y = event.getY();
+			    Log.i("flip", "o"+o_y+"n"+n_y+(o_y-n_y));
+			    if((o_y-n_y)>90){
+				    //temp.clear();
+					Message msg  = MallActivity.controllHandler.obtainMessage();
+					msg.what = 1;
+					msg.arg1 = (int) (o_y-n_y);
+					msg.sendToTarget();
+					o_y = 0;
+					n_y = 0;
+			    }
+				break;
+				default:
+					break;
+				}
+				return false;
+			}
+			
+		});*/
+		/*mPullRefreshListView.setOnScrollListener(new OnScrollListener(){
+
+			@Override
+			public void onScroll(AbsListView arg0, int arg1, int arg2, int arg3) {
+				// TODO Auto-generated method stub
+			//Log.d("duanzhibo",arg1+"#onScroll11 a"+arg2+"#"+arg3);
+			
+			}
+
+			@Override
+			public void onScrollStateChanged(AbsListView arg0, int arg1) {
+				// TODO Auto-generated method stub
+				//Log.d("duanzhibo",arg1+"#onScrollStateChanged --"+arg0.getHeight()+"##"+arg0.getLayoutDirection()+
+						
+				//		"##"+arg0.getMeasuredHeight()+"##"+arg0.getPivotY()+"##"+arg0.getTranslationY());
+			//	Log.i("scrol",arg0.getS+"&");
+			//	Message  msg= mHandler.obtainMessage();
+			//	msg.what    =1;
+			//	msg.sendToTarget();
+				
+			}
+			
+		});*/
+		mPullRefreshListView.setOnRefreshListener(new OnRefreshListener<StaggeredGridView>() {
+
+			@SuppressLint("NewApi")
+			@Override
+			public void onRefresh(PullToRefreshBase<StaggeredGridView> refreshView) {
+				String label = DateUtils.formatDateTime(FirstFragment.this.getActivity(),System.currentTimeMillis(),
+						DateUtils.FORMAT_SHOW_TIME | DateUtils.FORMAT_SHOW_DATE | DateUtils.FORMAT_ABBREV_ALL);
+
+				if (refreshView.isHeaderShown()) {
+					
+					refreshView.getLoadingLayoutProxy().setLastUpdatedLabel(label);
+					// Do work to refresh the list here.
+				 //	new GetDataTask().execute();
+				// 	new GetHeaderDataTask().execute();
+				//	scroll_y =
+					mAdapter.clear();
+			/*		mAdapter.notifyDataSetInvalidated();*/
+					p = 1;
+					scroll_y=0;
+				//	getData();
+					new WaterfallTask().execute();
+				} else {
+					//founctionlist.clear(); 
+					
+					p++;
+			//		getData();
+				 	scroll_y = founctionlist.size();
+				//    getListMasData(p,x,y,post_cate);
+				 	new WaterfallTask().execute();
+					//new GetBottomDataTask().execute();
+				}
+
+				// Update the LastUpdatedLabel
+			}
+		
+		});
+	}
+	public void getData()
+	{
+		for(int i = 0;i<30;i++)
+		{
+			Waterfall wf = null;
+			try {
+				wf = new Waterfall(null);
+			} catch (JSONException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			founctionlist.add(wf);
+		}
+
+		mAdapter.notifyDataSetChanged();
+		mPullRefreshListView.onRefreshComplete();
+	}
+	public class WaterfallTask extends AsyncTask<Void, Void, NetworkBeanArray> 
+	{
+		@Override
+		protected void onPreExecute() 
+		{
+			if(!progressDialog.isShowing()){
+				progressDialog.show();
+			}
+			super.onPreExecute();
+		}
+
+		@Override
+		protected NetworkBeanArray doInBackground(Void... params) 
+		{
+			try 
+			{
+				return mApplication.getNetApi().homeWaterfall(mApplication.getLongitude(),mApplication.getLatitude(),String.valueOf(p), ""+post_cate);
+			} 
+			catch (NullPointerException ex) 
+			{
+				ex.printStackTrace();
+			}
+			return null;
+		}
+
+		@Override
+		protected void onPostExecute(NetworkBeanArray result) 
+		{
+			if (result != null) 
+			{
+				progressDialog.dismiss();
+				try 
+				{
+					JSONArray jsonArray = new JSONArray(result.getResult());
+					List<Waterfall> waterList = new ArrayList<Waterfall>();
+					Waterfall water = null;
+					for (int i = 0; i < jsonArray.length(); i++)
+					{
+						water = new Waterfall(jsonArray.getJSONObject(i));
+						waterList.add(water);
+					}
+					if(waterList.size() == 0){
+						p--;
+					}
+					else{
+						//mAdapter.addAll(waterList);
+						mAdapter.addItemLast(waterList);
+						//mAdapter.notifyDataSetChanged();
+						if(p == 2){
+							Message msg  = MallActivity.controllHandler.obtainMessage();
+							msg.what = 1;
+							msg.sendToTarget();
+						}
+						else if(p == 1){
+							Message msg  = MallActivity.controllHandler.obtainMessage();
+							msg.what     =2;
+							msg.sendToTarget();
+						}
+					}
+					mPullRefreshListView.onRefreshComplete();
+					mPullRefreshListView.scrollTo(0, scroll_y);
+				} 
+				catch (Exception e) 
+				{
+					mPullRefreshListView.onRefreshComplete();
+					e.printStackTrace();
+				}
+			}
+		}
+	}
+
+}

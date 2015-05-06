@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="popup_main_background">#b0000000</color>
+    <color name="black">#000000</color>
+    <color name="choose_eara_item_press_color">#f4f4f4</color>
+    <color name="white">#ffffff</color>
+    <color name="no_color">#00000000</color>
+    <color name="link_blue">#1998ED</color>
+    <color name="dialog_button">#e40e03</color>
+      <color name="dialog_button_trans">#fde40e03</color>
+    <color name="transparent">#9000</color>
+    <color name="orange">#ffffdc7e</color>
+    <color name="grey">#ffd3d3d3</color>
+    <color name="green">#ff8dd304</color>
+    <color name="blue">#ff82e0ff</color>
+    <color name="yellow">#fffffbae</color>
+    <color name="red">#fff10800</color>
+    <color name="share_red">#99f10800</color>
+     <color name="share_yellow">#fffffbae</color>
+    <color name="list_item_pressed">#1A000000</color>
+    
+    <color name="process_bg">#dcdcdc</color>
+
+</resources>

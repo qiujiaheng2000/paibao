@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:drawable="@drawable/find_selected" android:state_selected="true"></item>
+    <item android:drawable="@drawable/find_unselected" android:state_selected="false"></item>
+
+</selector><!-- From: file:/Users/jhqiu/Desktop/paibao/paibao/Paibao/PlayingTreasure/res/drawable/bg_find.xml -->

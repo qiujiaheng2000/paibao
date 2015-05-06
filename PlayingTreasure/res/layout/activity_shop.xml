@@ -1,0 +1,83 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" 
+    android:background="#e1e1e1">
+<RelativeLayout
+        android:id="@+id/top_title_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/top_title_bar" >
+
+        <ImageView
+            android:id="@+id/title_bar_left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="13dp"
+            android:gravity="center"
+            android:padding="10dp"
+            android:src="@drawable/back480_03"
+            android:onClick="back"/>
+
+        <TextView
+            android:id="@+id/title_bar_center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:textColor="#FFFFFF"
+            android:textSize="@dimen/pub_textsize_twenty" 
+            android:text="商家店名"/>
+
+        <ImageView
+            android:id="@+id/title_bar_right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="13dp"
+            android:padding="10dp"
+            android:src="@drawable/share" 
+            android:onClick="share"/>
+    </RelativeLayout>
+    <include 
+        layout="@layout/shop_name"/>
+     <TextView
+            android:id="@+id/content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:textColor="#000000"
+            android:textSize="@dimen/android_public_textsize_20pt" 
+            android:layout_margin="5dip"
+            android:padding="5dip"
+            android:background="@drawable/shop_bg"/>
+    <LinearLayout 
+        android:layout_width="match_parent"
+    	android:layout_height="match_parent"
+    	android:orientation="vertical"
+    	android:background="@drawable/shop_bg"
+    	android:layout_marginTop="5dip">
+        <TextView
+            android:id="@+id/title_bar_center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:textColor="#000000"
+            android:textSize="@dimen/pub_textsize_twenty" 
+            android:text="镇店之宝"
+            android:layout_margin="5dip"/>
+        <com.handmark.pulltorefresh.library.PullToRefreshStaggeredGridView
+    		android:background="#FFFFFF"
+    		android:id="@+id/grid_view"
+    		android:layout_width="match_parent"
+    		android:layout_height="match_parent" 
+    		app:item_margin="8dp"
+    		app:column_count="@integer/grid_column_count"/>
+    </LinearLayout>
+	
+</LinearLayout>

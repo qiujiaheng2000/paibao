@@ -1,0 +1,9 @@
+<com.etsy.android.grid.StaggeredGridView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#FFFFFF"
+    android:id="@+id/grid_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:item_margin="8dp"
+    app:column_count="@integer/grid_column_count" /><!-- From: file:/Users/jhqiu/Desktop/paibao/paibao/Paibao/PlayingTreasure/res/layout/view_category_share.xml -->

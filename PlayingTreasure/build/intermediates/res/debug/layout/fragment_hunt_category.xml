@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" 
+    android:background="#e3e3e3">
+
+    <include layout="@layout/top_title_bar" />
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        
+        android:paddingBottom="10dp"
+        android:orientation="horizontal" >
+
+        <EditText
+            android:id="@+id/search_edit"
+            style="@style/my_edittext_style"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:imeOptions="actionSearch"
+            android:layout_marginTop="10dp"
+            android:drawableLeft="@drawable/search"
+            android:paddingLeft="20dp"
+            android:drawablePadding="10dp"
+            android:hint="搜索"
+            android:singleLine="true"
+            android:textSize="16sp" 
+            android:textColor="@android:color/black"/>
+    </LinearLayout>
+	<ImageView 
+	    android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/item_divider"/>
+    <ListView
+        android:id="@+id/listview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:divider="@drawable/item_divider"
+        android:scrollbars="none"
+        android:cacheColorHint="#000000" />
+
+</LinearLayout><!-- From: file:/Users/jhqiu/Desktop/paibao/paibao/Paibao/PlayingTreasure/res/layout/fragment_hunt_category.xml -->

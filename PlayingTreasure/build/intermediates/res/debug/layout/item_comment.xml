@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <ImageView
+        android:id="@+id/item_comment_pic"
+        android:layout_width="68px"
+        android:layout_height="68px"
+        android:layout_marginLeft="20px"
+        android:layout_marginTop="20px"
+        android:layout_marginBottom="20px"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:contentDescription="@null"
+        android:src="@drawable/me_head_bg" />
+    <com.play.treasure.widget.CircularImage
+        android:id="@+id/cover_user_photo"
+        android:layout_marginLeft="20px"
+        android:layout_marginTop="20px"
+        android:layout_marginBottom="20px"
+        android:layout_width="68px"
+        android:layout_height="68px"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true" />
+
+    <RelativeLayout
+        android:id="@+id/item_comment_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="10px"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@id/item_comment_pic" >
+
+        <TextView
+            android:id="@+id/item_comment_text_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10px"
+            android:layout_marginLeft="20px"
+            android:layout_alignParentLeft="true"
+            android:text="GaaMf"
+            android:textColor="#333333"
+            android:textSize="@dimen/pub_textsize_fifteen"/>
+
+        <TextView
+            android:id="@+id/item_comment_text_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10px"
+            android:layout_marginRight="20px"
+            android:layout_alignParentRight="true"
+            android:text="2014-10-10 12:00" 
+            android:textSize="@dimen/pub_textsize_thirteen"/>
+
+        <TextView
+            android:id="@+id/item_comment_text_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20px"
+            android:layout_marginRight="20px"
+            
+            android:layout_alignParentLeft="true"
+            android:layout_below="@id/item_comment_text_name"
+            android:text="成色不错 成色不错 成色不错 成色不错 成色不错成色不错 成色不错 成色不错 成色不错成色不错成色不错 成色不错 "
+            android:textColor="#333333"
+            android:textSize="@dimen/pub_textsize_twelev" />
+    </RelativeLayout>
+
+</RelativeLayout><!-- From: file:/Users/jhqiu/Desktop/paibao/paibao/Paibao/PlayingTreasure/res/layout/item_comment.xml -->

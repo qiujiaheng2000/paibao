@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#e3e3e3"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/user_public_plays"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/bg_publicplays"
+        android:padding="1dp" 
+        android:onClick="userPublic">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#ffffff"
+            android:padding="10dp" >
+
+            <ImageView
+                android:id="@+id/photograph"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="15dp"
+                android:src="@drawable/publicplay" />
+
+            <TextView
+                android:id="@+id/photo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:singleLine="true"
+                android:textStyle="bold"
+                android:text="发布宝贝"
+                android:textColor="#FF0000"
+                android:textSize="18sp" />
+        </RelativeLayout>
+        
+    </RelativeLayout>
+	<TextView 
+            android:layout_width="match_parent"
+        	android:layout_height="wrap_content"
+        	android:layout_marginLeft="20dp"
+        	android:layout_marginRight="20dp"
+        	android:layout_marginTop="10dp"
+        	android:textColor="@android:color/black"
+        	android:textSize="@dimen/pub_textsize_eighteen"
+        	android:text="还没有相应的宝贝"
+        	android:gravity="center"/>
+</LinearLayout>
