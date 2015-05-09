@@ -15,6 +15,7 @@ uses-sdk
 ADDED from AndroidManifest.xml:7:5
 MERGED from Paibao:library2:unspecified:7:5
 MERGED from Paibao:android-support-v7-appcompat:unspecified:20:5
+MERGED from Paibao:ParallaxScroll:unspecified:8:5
 MERGED from Paibao:android-support-v7-appcompat:unspecified:20:5
 	android:targetSdkVersion
 		ADDED from AndroidManifest.xml:9:9
@@ -100,6 +101,7 @@ application
 ADDED from AndroidManifest.xml:51:5
 MERGED from Paibao:library2:unspecified:9:5
 MERGED from Paibao:android-support-v7-appcompat:unspecified:22:5
+MERGED from Paibao:ParallaxScroll:unspecified:12:5
 MERGED from Paibao:android-support-v7-appcompat:unspecified:22:5
 	android:label
 		ADDED from AndroidManifest.xml:55:9
@@ -109,6 +111,8 @@ MERGED from Paibao:android-support-v7-appcompat:unspecified:22:5
 		ADDED from AndroidManifest.xml:54:9
 	android:name
 		ADDED from AndroidManifest.xml:52:9
+	tools:ignore
+		ADDED from Paibao:ParallaxScroll:unspecified:12:18
 service#com.baidu.location.f
 ADDED from AndroidManifest.xml:56:9
 	android:process

@@ -47,5 +47,9 @@
     <string name="tab_5">分享</string>
     <string name="title_activity_shop">ShopActivity</string>
     <string name="title_activity_shop_image">ShopImageActivity</string>
+    <string name="zhangyan_text">求掌眼</string>
+    <string name="sale_text">出售</string>
+    <string name="bawan_text">把玩</string>
+    <string name="share_text">分享</string>
 
 </resources>

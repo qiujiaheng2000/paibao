@@ -6,6 +6,7 @@
 
     <dimen name="abc_text_size_menu_material">14dip</dimen>
     <dimen name="abc_text_size_tuji">20dip</dimen>
+    <dimen name="shop_text_size">17dip</dimen>
 
     <!-- 新增加部分 -->
 
@@ -31,6 +32,7 @@
     <dimen name="ios_public_space_130px">65dp</dimen>
 
     <!-- android高保真标注字体 -->
+    <dimen name="android_public_textsize_12pt">10sp</dimen>
     <dimen name="android_public_textsize_14pt">12sp</dimen>
     <dimen name="android_public_textsize_16pt">14sp</dimen>
     <dimen name="android_public_textsize_18pt">16sp</dimen>

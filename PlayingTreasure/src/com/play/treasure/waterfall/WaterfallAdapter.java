@@ -25,20 +25,15 @@ import com.lidroid.xutils.bitmap.callback.BitmapLoadFrom;
 import com.lidroid.xutils.bitmap.callback.DefaultBitmapLoadCallBack;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
-import com.nostra13.universalimageloader.core.display.FadeInBitmapDisplayer;
-import com.nostra13.universalimageloader.core.display.RoundedBitmapDisplayer;
-import com.nostra13.universalimageloader.core.display.RoundedVignetteBitmapDisplayer;
 import com.nostra13.universalimageloader.core.display.SimpleBitmapDisplayer;
 import com.play.treasure.Functions;
 import com.play.treasure.PlayApplication;
 import com.play.treasure.R;
 import com.play.treasure.activity.PlayDetailActivity;
 import com.play.treasure.adapter.BaseListAdapter;
-import com.play.treasure.model.Image;
 import com.play.treasure.model.Waterfall;
 import com.play.treasure.network.NetworkConfig;
 import com.play.treasure.utils.PreferencesUtils;
-import com.squareup.picasso.Picasso;
 
 public class WaterfallAdapter extends BaseListAdapter<Waterfall> implements
         OnItemClickListener {
@@ -83,9 +78,9 @@ public class WaterfallAdapter extends BaseListAdapter<Waterfall> implements
         itemWidth = (screenWidth / 2 - 20);
 
         options = new DisplayImageOptions.Builder()
-                .showImageOnLoading(R.color.white)
-                .showImageForEmptyUri(R.color.white)
-                .showImageOnFail(R.color.white)
+                .showImageOnLoading(R.drawable.default_icon)
+                .showImageForEmptyUri(R.drawable.default_icon)
+                .showImageOnFail(R.drawable.default_icon)
                 .cacheInMemory(true)
                 .cacheOnDisk(true)
                 .considerExifParams(true)
@@ -104,7 +99,7 @@ public class WaterfallAdapter extends BaseListAdapter<Waterfall> implements
             mHolder = new ViewHolder();
             mHolder.imgView = (ImageView) convertView
                     .findViewById(R.id.imgView);
-            mHolder.playCategory = (ImageView) convertView
+            mHolder.playCategory = (TextView) convertView
                     .findViewById(R.id.water_fall_category);
             mHolder.auth = (ImageView) convertView.findViewById(R.id.auth);
             mHolder.playName = (TextView) convertView
@@ -143,20 +138,31 @@ public class WaterfallAdapter extends BaseListAdapter<Waterfall> implements
         try {
             switch (Integer.parseInt(mWaterfall.getPlayCategory())) {
                 case 1:
-                    mHolder.playCategory.setImageResource(R.drawable.tag_sale);
+//                    mHolder.playCategory.setImageResource(R.drawable.tag_sale);
+                    mHolder.playCategory.setBackgroundResource(R.color.sale_color);
+                    mHolder.playCategory.setText(R.string.sale_text);
                     mHolder.auth
                             .setVisibility(mWaterfall.getAuth().equals("1") ? View.VISIBLE
                                     : View.GONE);
                     break;
                 case 2:
-                    mHolder.playCategory.setImageResource(R.drawable.tag_zhangyan);
+
+//                    mHolder.playCategory.setImageResource(R.drawable.tag_zhangyan);
+                    mHolder.playCategory.setBackgroundResource(R.color.zhangyan_color);
+                    mHolder.playCategory.setText(R.string.zhangyan_text);
+
                     break;
                 case 3:
-                    mHolder.playCategory.setImageResource(R.drawable.tag_play);
+//                    mHolder.playCategory.setImageResource(R.drawable.tag_play);
+                    mHolder.playCategory.setBackgroundResource(R.color.bawan_color);
+                    mHolder.playCategory.setText(R.string.bawan_text);
                     break;
                 case 4:
-                    mHolder.playCategory.setImageResource(R.drawable.tag_share);
+//                    mHolder.playCategory.setImageResource(R.drawable.tag_share);
+                    mHolder.playCategory.setBackgroundResource(R.color.share_color);
+                    mHolder.playCategory.setText(R.string.share_text);
                     break;
+
             }
         } catch (NumberFormatException ex) {
             ex.printStackTrace();
@@ -187,7 +193,7 @@ public class WaterfallAdapter extends BaseListAdapter<Waterfall> implements
     static class ViewHolder {
         ImageView imgView;
         ImageView auth;
-        private ImageView playCategory;
+        private TextView playCategory;
         private TextView playName;
         private TextView playStack;
         private TextView playComment;

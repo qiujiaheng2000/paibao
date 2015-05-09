@@ -1,101 +1,156 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="250dip"
-    android:orientation="horizontal" 
-    android:background="@drawable/bg_1">
-    <LinearLayout 
+                android:layout_width="match_parent"
+                android:layout_height="280dip"
+                android:background="@drawable/shop_bg"
+                android:orientation="horizontal">
+
+    <LinearLayout
         android:id="@+id/icon"
         android:layout_width="120dip"
-    	android:layout_height="wrap_content"
-    	android:orientation="vertical" 
-    	android:gravity="center"
-    	android:layout_marginLeft="@dimen/pub_margin_or_padding_space_nine"
-    	android:layout_marginRight="@dimen/pub_margin_or_padding_space_nine"
-    	android:layout_centerVertical="true">
-        <com.play.treasure.widget.CircularImage
+        android:layout_height="wrap_content"
+        android:layout_marginTop="90dp"
+        android:layout_marginLeft="@dimen/pub_margin_or_padding_space_nine"
+        android:layout_marginRight="@dimen/pub_margin_or_padding_space_nine"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <!--<com.play.treasure.widget.CircularImage-->
+        <!--android:id="@+id/cover_user_photo"-->
+        <!--android:layout_width="100dp"-->
+        <!--android:layout_height="100dp"-->
+        <!--android:src="@drawable/icon"/>-->
+
+        <ImageView
             android:id="@+id/cover_user_photo"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:src="@drawable/icon" />
-        <TextView 
-	    android:id="@+id/shop_name"
-	    android:layout_width="wrap_content"
-    	android:layout_height="wrap_content"
-    	android:textColor="@android:color/white"
-    	android:textSize="@dimen/abc_text_size_title_material"
-    	/>
+            android:src="@drawable/icon"/>
+
+        <TextView
+            android:id="@+id/shop_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/abc_text_size_tuji"
+            />
     </LinearLayout>
-    
-	
-   <LinearLayout 
-       android:layout_width="match_parent"
-       android:layout_height="wrap_content"
-       android:orientation="vertical"
-       android:layout_centerVertical="true"
-       android:layout_toRightOf="@id/icon"
-       >
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/icon"
+        android:layout_marginTop="90dp"
+        android:orientation="vertical"
+        >
+
         <ImageView
             android:id="@+id/auth"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="15dip"
             android:background="@drawable/auth"
-           	android:visibility="gone"
-           	android:layout_marginBottom="20dip"/>
-       	<TextView 
-	    android:id="@+id/local"
-	    android:layout_width="wrap_content"
-    	android:layout_height="wrap_content"
-    	android:textColor="@android:color/white"
-    	android:textSize="@dimen/abc_text_size_menu_material"
-    	android:drawableLeft="@drawable/local"
-    	android:layout_marginRight="@dimen/pub_margin_or_padding_space_twenty"
-    	/>
-       	<ImageView
-        android:layout_width="fill_parent"
+            android:visibility="visible"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/pub_margin_or_padding_space_twelev"
+                android:src="@drawable/local"/>
+
+            <TextView
+                android:id="@+id/local"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:maxLines="4"
+                android:layout_marginRight="@dimen/pub_margin_or_padding_space_twenty"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/shop_text_size"
+                />
+        </LinearLayout>
+
+
+        <ImageView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dip"
+            android:layout_marginRight="@dimen/pub_margin_or_padding_space_twenty"
+            android:layout_marginTop="5dip"
+            android:background="@drawable/shop_divider"
+            android:scaleType="matrix"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/pub_margin_or_padding_space_twelev"
+                android:src="@drawable/phone"/>
+
+            <TextView
+                android:id="@+id/phone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/pub_margin_or_padding_space_twenty"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/shop_text_size"
+                />
+        </LinearLayout>
+
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dip"
+            android:layout_marginRight="@dimen/pub_margin_or_padding_space_twenty"
+            android:layout_marginTop="5dip"
+            android:background="@drawable/shop_divider"
+            android:scaleType="matrix"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/pub_margin_or_padding_space_twelev"
+                android:src="@drawable/qq"/>
+
+            <TextView
+                android:id="@+id/qq"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/pub_margin_or_padding_space_twenty"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/shop_text_size"
+                />
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:scaleType="matrix"
-        android:background="@drawable/item_divider" 
-        android:layout_marginTop="2dip"
-        android:layout_marginBottom="2dip"
-        android:layout_marginRight="@dimen/pub_margin_or_padding_space_twenty"
-        />
-       		<TextView 
-	    	android:id="@+id/phone"
-	    	android:layout_width="wrap_content"
-    		android:layout_height="wrap_content"
-    		android:textColor="@android:color/white"
-    		android:textSize="@dimen/abc_text_size_menu_material"
-    		android:drawableLeft="@drawable/phone"
-    		android:layout_marginRight="@dimen/pub_margin_or_padding_space_twenty"
-    		/>
-       		<ImageView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:scaleType="matrix"
-        android:background="@drawable/item_divider" 
-        android:layout_marginTop="2dip"
-        android:layout_marginBottom="2dip"
-        android:layout_marginRight="@dimen/pub_margin_or_padding_space_twenty"/>
-       			<TextView 
-	    android:id="@+id/qq"
-	    android:layout_width="wrap_content"
-    	android:layout_height="wrap_content"
-    	android:textColor="@android:color/white"
-    	android:textSize="@dimen/abc_text_size_menu_material"
-    	android:drawableLeft="@drawable/qq"
-    	android:layout_marginRight="@dimen/pub_margin_or_padding_space_twenty"
-    	/>
-       			
-   </LinearLayout>
-	<Button 
-       			    android:layout_width="wrap_content"
-    				android:layout_height="wrap_content"
-    				android:text="商户图集"
-    				android:background="@+color/red"
-    				android:textColor="@+color/white"
-    				android:textSize="@dimen/abc_text_size_tuji"
-    				android:layout_alignParentRight="true"
-    				android:layout_alignParentBottom="true"
-    				android:onClick="shopPic"/>
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:background="@color/red"
+        android:onClick="shopPic"
+        android:padding="10dp"
+        android:clickable="true"
+        android:text="商户图集"
+        android:textColor="@color/white"
+        android:textSize="@dimen/android_public_textsize_16pt"/>
 </RelativeLayout>

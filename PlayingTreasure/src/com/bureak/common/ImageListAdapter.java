@@ -4,6 +4,8 @@ import java.util.ArrayList;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.support.v4.app.FragmentActivity;
 import android.text.TextUtils;
 import android.util.Log;
@@ -16,9 +18,12 @@ import android.widget.AdapterView.OnItemClickListener;
 
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
+import com.nostra13.universalimageloader.core.assist.FailReason;
 import com.nostra13.universalimageloader.core.display.FadeInBitmapDisplayer;
 import com.nostra13.universalimageloader.core.display.RoundedBitmapDisplayer;
 import com.nostra13.universalimageloader.core.display.SimpleBitmapDisplayer;
+import com.nostra13.universalimageloader.core.listener.ImageLoadingListener;
+import com.play.treasure.Functions;
 import com.play.treasure.PlayApplication;
 import com.play.treasure.R;
 import com.play.treasure.activity.PlayDetailActivity;
@@ -41,9 +46,9 @@ public class ImageListAdapter extends IncreaseAdatper<Waterfall> implements
         int screenWidth = UiUtils.getScreenWidthAndSizeInPx(activity)[0];
         itemWidth = (screenWidth / 2 - 20);
         options = new DisplayImageOptions.Builder()
-                .showImageForEmptyUri(R.color.white)
-                .showImageOnLoading(R.color.white)
-                .showImageOnFail(R.color.white)
+                .showImageForEmptyUri(R.drawable.default_icon)
+                .showImageOnLoading(R.drawable.default_icon)
+                .showImageOnFail(R.drawable.default_icon)
                 .cacheInMemory(true)
                 .cacheOnDisk(true)
                 .considerExifParams(true)
@@ -63,7 +68,7 @@ public class ImageListAdapter extends IncreaseAdatper<Waterfall> implements
             mHolder = new ViewHolder();
             mHolder.imgView = (ImageView) convertView
                     .findViewById(R.id.imgView);
-            mHolder.playCategory = (ImageView) convertView
+            mHolder.playCategory = (TextView) convertView
                     .findViewById(R.id.water_fall_category);
             mHolder.auth = (ImageView) convertView.findViewById(R.id.auth);
             mHolder.playName = (TextView) convertView
@@ -97,19 +102,23 @@ public class ImageListAdapter extends IncreaseAdatper<Waterfall> implements
         try {
             switch (Integer.parseInt(mWaterfall.getPlayCategory())) {
                 case 1:
-                    mHolder.playCategory.setImageResource(R.drawable.tag_sale);
+                    mHolder.playCategory.setBackgroundResource(R.color.sale_color);
+                    mHolder.playCategory.setText(R.string.sale_text);
                     mHolder.auth
                             .setVisibility(mWaterfall.getAuth().equals("1") ? View.VISIBLE
                                     : View.GONE);
                     break;
                 case 2:
-                    mHolder.playCategory.setImageResource(R.drawable.tag_zhangyan);
+                    mHolder.playCategory.setBackgroundResource(R.color.zhangyan_color);
+                    mHolder.playCategory.setText(R.string.zhangyan_text);
                     break;
                 case 3:
-                    mHolder.playCategory.setImageResource(R.drawable.tag_play);
+                    mHolder.playCategory.setBackgroundResource(R.color.bawan_color);
+                    mHolder.playCategory.setText(R.string.bawan_text);
                     break;
                 case 4:
-                    mHolder.playCategory.setImageResource(R.drawable.tag_share);
+                    mHolder.playCategory.setBackgroundResource(R.color.share_color);
+                    mHolder.playCategory.setText(R.string.share_text);
                     break;
             }
         } catch (NumberFormatException ex) {
@@ -142,7 +151,7 @@ public class ImageListAdapter extends IncreaseAdatper<Waterfall> implements
     static class ViewHolder {
         ImageView imgView;
         ImageView auth;
-        private ImageView playCategory;
+        private TextView playCategory;
         private TextView playName;
         private TextView playStack;
         private TextView playComment;

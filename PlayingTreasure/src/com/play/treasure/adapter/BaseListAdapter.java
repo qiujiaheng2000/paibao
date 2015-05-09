@@ -51,11 +51,12 @@ public abstract class BaseListAdapter<T> extends BaseAdapter
 		}
 	}
 
+	@Override
 	public int getCount() {
 		return list == null ? 0 : list.size();
 	}
 
-	public T getItem(int i) 
+	public T getItem(int i)
 	{
 		return this.list.get(i);
 	}

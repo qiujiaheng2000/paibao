@@ -21,5 +21,9 @@
     <color name="list_item_pressed">#1A000000</color>
     
     <color name="process_bg">#dcdcdc</color>
+    <color name="zhangyan_color">#1b9af7</color>
+    <color name="sale_color">#ea5527</color>
+    <color name="bawan_color">#fdab0e</color>
+    <color name="share_color">#93c519</color>
 
 </resources>

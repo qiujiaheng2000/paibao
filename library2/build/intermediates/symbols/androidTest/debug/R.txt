@@ -18,7 +18,7 @@ int attr actionBarTabStyle 0x7f010006
 int attr actionBarTabTextStyle 0x7f010007
 int attr actionBarWidgetTheme 0x7f010008
 int attr actionButtonStyle 0x7f010009
-int attr actionDropDownStyle 0x7f01007d
+int attr actionDropDownStyle 0x7f010082
 int attr actionLayout 0x7f010059
 int attr actionMenuTextAppearance 0x7f01000a
 int attr actionMenuTextColor 0x7f01000b
@@ -39,39 +39,42 @@ int attr actionOverflowButtonStyle 0x7f010019
 int attr actionProviderClass 0x7f01005b
 int attr actionViewClass 0x7f01005a
 int attr activityChooserViewStyle 0x7f01001a
+int attr alpha_factor 0x7f01005d
 int attr background 0x7f010047
 int attr backgroundSplit 0x7f010049
 int attr backgroundStacked 0x7f010048
 int attr buttonBarButtonStyle 0x7f01001b
 int attr buttonBarStyle 0x7f01001c
-int attr column_count 0x7f010075
-int attr column_count_landscape 0x7f010077
-int attr column_count_portrait 0x7f010076
+int attr circular_parallax 0x7f010060
+int attr column_count 0x7f01007a
+int attr column_count_landscape 0x7f01007c
+int attr column_count_portrait 0x7f01007b
 int attr customNavigationLayout 0x7f01004a
-int attr disableChildrenWhenDisabled 0x7f010074
+int attr disableChildrenWhenDisabled 0x7f010079
 int attr displayOptions 0x7f010040
 int attr divider 0x7f010046
 int attr dividerHorizontal 0x7f01001d
 int attr dividerPadding 0x7f010057
 int attr dividerVertical 0x7f01001e
 int attr dropDownListViewStyle 0x7f01001f
-int attr dropdownListPreferredItemHeight 0x7f01007e
+int attr dropdownListPreferredItemHeight 0x7f010083
 int attr expandActivityOverflowButtonDrawable 0x7f010054
-int attr grid_paddingBottom 0x7f01007c
-int attr grid_paddingLeft 0x7f010079
-int attr grid_paddingRight 0x7f01007a
-int attr grid_paddingTop 0x7f01007b
+int attr grid_paddingBottom 0x7f010081
+int attr grid_paddingLeft 0x7f01007e
+int attr grid_paddingRight 0x7f01007f
+int attr grid_paddingTop 0x7f010080
 int attr height 0x7f010020
 int attr homeAsUpIndicator 0x7f010021
 int attr homeLayout 0x7f01004b
 int attr icon 0x7f010044
-int attr iconifiedByDefault 0x7f01006f
+int attr iconifiedByDefault 0x7f010074
 int attr indeterminateProgressStyle 0x7f01004d
 int attr initialActivityCount 0x7f010053
+int attr inner_parallax_factor 0x7f01005e
 int attr isLightTheme 0x7f010022
 int attr itemPadding 0x7f01004f
-int attr item_margin 0x7f010078
-int attr listChoiceBackgroundIndicator 0x7f010082
+int attr item_margin 0x7f01007d
+int attr listChoiceBackgroundIndicator 0x7f010087
 int attr listPopupWindowStyle 0x7f010023
 int attr listPreferredItemHeight 0x7f010024
 int attr listPreferredItemHeightLarge 0x7f010025
@@ -80,35 +83,37 @@ int attr listPreferredItemPaddingLeft 0x7f010027
 int attr listPreferredItemPaddingRight 0x7f010028
 int attr logo 0x7f010045
 int attr navigationMode 0x7f01003f
-int attr paddingEnd 0x7f010084
-int attr paddingStart 0x7f010083
-int attr panelMenuListTheme 0x7f010081
-int attr panelMenuListWidth 0x7f010080
-int attr popupMenuStyle 0x7f01007f
-int attr popupPromptView 0x7f010073
+int attr paddingEnd 0x7f010089
+int attr paddingStart 0x7f010088
+int attr panelMenuListTheme 0x7f010086
+int attr panelMenuListWidth 0x7f010085
+int attr parallax_factor 0x7f01005c
+int attr parallax_views_num 0x7f01005f
+int attr popupMenuStyle 0x7f010084
+int attr popupPromptView 0x7f010078
 int attr progressBarPadding 0x7f01004e
 int attr progressBarStyle 0x7f01004c
-int attr prompt 0x7f010071
-int attr ptrAdapterViewBackground 0x7f01006c
-int attr ptrAnimationStyle 0x7f010068
-int attr ptrDrawable 0x7f010062
-int attr ptrDrawableBottom 0x7f01006e
-int attr ptrDrawableEnd 0x7f010064
-int attr ptrDrawableStart 0x7f010063
-int attr ptrDrawableTop 0x7f01006d
-int attr ptrHeaderBackground 0x7f01005d
-int attr ptrHeaderSubTextColor 0x7f01005f
-int attr ptrHeaderTextAppearance 0x7f010066
-int attr ptrHeaderTextColor 0x7f01005e
-int attr ptrListViewExtrasEnabled 0x7f01006a
-int attr ptrMode 0x7f010060
-int attr ptrOverScroll 0x7f010065
-int attr ptrRefreshableViewBackground 0x7f01005c
-int attr ptrRotateDrawableWhilePulling 0x7f01006b
-int attr ptrScrollingWhileRefreshingEnabled 0x7f010069
-int attr ptrShowIndicator 0x7f010061
-int attr ptrSubHeaderTextAppearance 0x7f010067
-int attr queryHint 0x7f010070
+int attr prompt 0x7f010076
+int attr ptrAdapterViewBackground 0x7f010071
+int attr ptrAnimationStyle 0x7f01006d
+int attr ptrDrawable 0x7f010067
+int attr ptrDrawableBottom 0x7f010073
+int attr ptrDrawableEnd 0x7f010069
+int attr ptrDrawableStart 0x7f010068
+int attr ptrDrawableTop 0x7f010072
+int attr ptrHeaderBackground 0x7f010062
+int attr ptrHeaderSubTextColor 0x7f010064
+int attr ptrHeaderTextAppearance 0x7f01006b
+int attr ptrHeaderTextColor 0x7f010063
+int attr ptrListViewExtrasEnabled 0x7f01006f
+int attr ptrMode 0x7f010065
+int attr ptrOverScroll 0x7f01006a
+int attr ptrRefreshableViewBackground 0x7f010061
+int attr ptrRotateDrawableWhilePulling 0x7f010070
+int attr ptrScrollingWhileRefreshingEnabled 0x7f01006e
+int attr ptrShowIndicator 0x7f010066
+int attr ptrSubHeaderTextAppearance 0x7f01006c
+int attr queryHint 0x7f010075
 int attr searchDropdownBackground 0x7f010029
 int attr searchResultListItemHeight 0x7f01002a
 int attr searchViewAutoCompleteTextView 0x7f01002b
@@ -124,7 +129,7 @@ int attr selectableItemBackground 0x7f010034
 int attr showAsAction 0x7f010058
 int attr showDividers 0x7f010056
 int attr spinnerDropDownItemStyle 0x7f010035
-int attr spinnerMode 0x7f010072
+int attr spinnerMode 0x7f010077
 int attr spinnerStyle 0x7f010036
 int attr subtitle 0x7f010041
 int attr subtitleTextStyle 0x7f010043
@@ -382,6 +387,16 @@ int string abc_searchview_description_submit 0x7f050009
 int string abc_searchview_description_voice 0x7f05000a
 int string abc_shareactionprovider_share_with 0x7f05000b
 int string abc_shareactionprovider_share_with_application 0x7f05000c
+int string define_parallaxscroll 0x7f050013
+int string library_parallaxscroll_author 0x7f050014
+int string library_parallaxscroll_authorWebsite 0x7f050015
+int string library_parallaxscroll_isOpenSource 0x7f050016
+int string library_parallaxscroll_libraryDescription 0x7f050017
+int string library_parallaxscroll_libraryName 0x7f050018
+int string library_parallaxscroll_libraryVersion 0x7f050019
+int string library_parallaxscroll_libraryWebsite 0x7f05001a
+int string library_parallaxscroll_licenseId 0x7f05001b
+int string library_parallaxscroll_repositoryLink 0x7f05001c
 int string pull_to_refresh_from_bottom_pull_label 0x7f050010
 int string pull_to_refresh_from_bottom_refreshing_label 0x7f050011
 int string pull_to_refresh_from_bottom_release_label 0x7f050012
@@ -597,7 +612,13 @@ int styleable MenuView_android_itemTextAppearance 1
 int styleable MenuView_android_preserveIconSpacing 7
 int styleable MenuView_android_verticalDivider 3
 int styleable MenuView_android_windowAnimationStyle 0
-int[] styleable PullToRefresh { 0x7f01005c, 0x7f01005d, 0x7f01005e, 0x7f01005f, 0x7f010060, 0x7f010061, 0x7f010062, 0x7f010063, 0x7f010064, 0x7f010065, 0x7f010066, 0x7f010067, 0x7f010068, 0x7f010069, 0x7f01006a, 0x7f01006b, 0x7f01006c, 0x7f01006d, 0x7f01006e }
+int[] styleable ParallaxScroll { 0x7f01005c, 0x7f01005d, 0x7f01005e, 0x7f01005f, 0x7f010060 }
+int styleable ParallaxScroll_alpha_factor 1
+int styleable ParallaxScroll_circular_parallax 4
+int styleable ParallaxScroll_inner_parallax_factor 2
+int styleable ParallaxScroll_parallax_factor 0
+int styleable ParallaxScroll_parallax_views_num 3
+int[] styleable PullToRefresh { 0x7f010061, 0x7f010062, 0x7f010063, 0x7f010064, 0x7f010065, 0x7f010066, 0x7f010067, 0x7f010068, 0x7f010069, 0x7f01006a, 0x7f01006b, 0x7f01006c, 0x7f01006d, 0x7f01006e, 0x7f01006f, 0x7f010070, 0x7f010071, 0x7f010072, 0x7f010073 }
 int styleable PullToRefresh_ptrAdapterViewBackground 16
 int styleable PullToRefresh_ptrAnimationStyle 12
 int styleable PullToRefresh_ptrDrawable 6
@@ -617,13 +638,13 @@ int styleable PullToRefresh_ptrRotateDrawableWhilePulling 15
 int styleable PullToRefresh_ptrScrollingWhileRefreshingEnabled 13
 int styleable PullToRefresh_ptrShowIndicator 5
 int styleable PullToRefresh_ptrSubHeaderTextAppearance 11
-int[] styleable SearchView { 0x0101011f, 0x01010220, 0x01010264, 0x7f01006f, 0x7f010070 }
+int[] styleable SearchView { 0x0101011f, 0x01010220, 0x01010264, 0x7f010074, 0x7f010075 }
 int styleable SearchView_android_imeOptions 2
 int styleable SearchView_android_inputType 1
 int styleable SearchView_android_maxWidth 0
 int styleable SearchView_iconifiedByDefault 3
 int styleable SearchView_queryHint 4
-int[] styleable Spinner { 0x010100af, 0x01010175, 0x01010176, 0x01010262, 0x010102ac, 0x010102ad, 0x7f010071, 0x7f010072, 0x7f010073, 0x7f010074 }
+int[] styleable Spinner { 0x010100af, 0x01010175, 0x01010176, 0x01010262, 0x010102ac, 0x010102ad, 0x7f010076, 0x7f010077, 0x7f010078, 0x7f010079 }
 int styleable Spinner_android_dropDownHorizontalOffset 4
 int styleable Spinner_android_dropDownSelector 1
 int styleable Spinner_android_dropDownVerticalOffset 5
@@ -634,7 +655,7 @@ int styleable Spinner_disableChildrenWhenDisabled 9
 int styleable Spinner_popupPromptView 8
 int styleable Spinner_prompt 6
 int styleable Spinner_spinnerMode 7
-int[] styleable StaggeredGridView { 0x7f010075, 0x7f010076, 0x7f010077, 0x7f010078, 0x7f010079, 0x7f01007a, 0x7f01007b, 0x7f01007c }
+int[] styleable StaggeredGridView { 0x7f01007a, 0x7f01007b, 0x7f01007c, 0x7f01007d, 0x7f01007e, 0x7f01007f, 0x7f010080, 0x7f010081 }
 int styleable StaggeredGridView_column_count 0
 int styleable StaggeredGridView_column_count_landscape 2
 int styleable StaggeredGridView_column_count_portrait 1
@@ -643,14 +664,14 @@ int styleable StaggeredGridView_grid_paddingLeft 4
 int styleable StaggeredGridView_grid_paddingRight 5
 int styleable StaggeredGridView_grid_paddingTop 6
 int styleable StaggeredGridView_item_margin 3
-int[] styleable Theme { 0x7f01007d, 0x7f01007e, 0x7f01007f, 0x7f010080, 0x7f010081, 0x7f010082 }
+int[] styleable Theme { 0x7f010082, 0x7f010083, 0x7f010084, 0x7f010085, 0x7f010086, 0x7f010087 }
 int styleable Theme_actionDropDownStyle 0
 int styleable Theme_dropdownListPreferredItemHeight 1
 int styleable Theme_listChoiceBackgroundIndicator 5
 int styleable Theme_panelMenuListTheme 4
 int styleable Theme_panelMenuListWidth 3
 int styleable Theme_popupMenuStyle 2
-int[] styleable View { 0x010100da, 0x7f010083, 0x7f010084 }
+int[] styleable View { 0x010100da, 0x7f010088, 0x7f010089 }
 int styleable View_android_focusable 0
 int styleable View_paddingEnd 2
 int styleable View_paddingStart 1

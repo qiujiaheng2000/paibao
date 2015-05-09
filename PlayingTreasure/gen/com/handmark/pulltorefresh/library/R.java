@@ -392,9 +392,9 @@ public final class R {
 		public static final int abc_popup_menu_item_layout = 0x7f030014;
 		public static final int abc_search_dropdown_item_icons_2line = 0x7f030015;
 		public static final int abc_search_view = 0x7f030016;
-		public static final int pull_to_refresh_header_horizontal = 0x7f030058;
-		public static final int pull_to_refresh_header_vertical = 0x7f030059;
-		public static final int support_simple_spinner_dropdown_item = 0x7f03005c;
+		public static final int pull_to_refresh_header_horizontal = 0x7f030059;
+		public static final int pull_to_refresh_header_vertical = 0x7f03005a;
+		public static final int support_simple_spinner_dropdown_item = 0x7f03005d;
 	}
 	public static final class string {
 		public static final int abc_action_bar_home_description = 0x7f0a0001;

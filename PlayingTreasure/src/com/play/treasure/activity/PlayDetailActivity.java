@@ -103,7 +103,7 @@ public class PlayDetailActivity extends Activity implements
 
     private String code;
 
-    private ImageView IvCategory;
+    private TextView IvCategory;
 
     private TextView TvCity;
 
@@ -203,7 +203,7 @@ public class PlayDetailActivity extends Activity implements
                 LinearLayout.LayoutParams.MATCH_PARENT,
                 LinearLayout.LayoutParams.WRAP_CONTENT));
 
-        IvCategory = (ImageView) headView
+        IvCategory = (TextView) headView
                 .findViewById(R.id.detail_banner_category);
 
         TvCity = (TextView) headView
@@ -226,16 +226,24 @@ public class PlayDetailActivity extends Activity implements
 
             switch (Integer.parseInt(category)) {
                 case 1:
-                    IvCategory.setImageResource(R.drawable.detail_sale);
+//                    IvCategory.setImageResource(R.drawable.detail_sale);
+                    IvCategory.setBackgroundResource(R.color.sale_color);
+                    IvCategory.setText(R.string.sale_text);
                     break;
                 case 2:
-                    IvCategory.setImageResource(R.drawable.detail_zhangyan);
+//                    IvCategory.setImageResource(R.drawable.detail_zhangyan);
+                    IvCategory.setBackgroundResource(R.color.zhangyan_color);
+                    IvCategory.setText(R.string.zhangyan_text);
                     break;
                 case 3:
-                    IvCategory.setImageResource(R.drawable.detail_play);
+//                    IvCategory.setImageResource(R.drawable.detail_play);
+                    IvCategory.setBackgroundResource(R.color.bawan_color);
+                    IvCategory.setText(R.string.bawan_text);
                     break;
                 case 4:
-                    IvCategory.setImageResource(R.drawable.detail_share);
+//                    IvCategory.setImageResource(R.drawable.detail_share);
+                    IvCategory.setBackgroundResource(R.color.share_color);
+                    IvCategory.setText(R.string.share_text);
                     break;
             }
 

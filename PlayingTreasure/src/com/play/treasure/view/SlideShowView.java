@@ -99,9 +99,9 @@ public class SlideShowView extends LinearLayout {
         // initImageLoader(context);
         bitmapUtils = Functions.initbimapxUtils(bitmapUtils, context);
         options = new DisplayImageOptions.Builder()
-                .showImageForEmptyUri(R.color.white)
-                .showImageOnLoading(R.color.white)
-                .showImageOnFail(R.color.white)
+                .showImageForEmptyUri(R.drawable.default_icon)
+                .showImageOnLoading(R.drawable.default_icon)
+                .showImageOnFail(R.drawable.default_icon)
                 .cacheInMemory(true)
                 .cacheOnDisk(true)
                 .considerExifParams(true)

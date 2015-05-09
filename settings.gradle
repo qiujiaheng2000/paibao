@@ -1,3 +1,4 @@
 include ':android-support-v7-appcompat'
 include ':library2'
 include ':PlayingTreasure'
+include ':ParallaxScroll'
