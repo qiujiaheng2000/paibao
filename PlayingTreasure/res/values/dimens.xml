@@ -44,6 +44,9 @@
     <dimen name="android_public_textsize_22pt">20sp</dimen>
     <dimen name="android_public_space_14px">11dp</dimen>
 
+    <!-- 顶部导航栏的标题字体大小-->
+    <dimen name="title_bar_textsize">@dimen/android_public_textsize_20pt</dimen>
+
     <!-- space -->
     <dimen name="pub_margin_or_padding_space_one">1dp</dimen>
     <dimen name="pub_margin_or_padding_space_two">2dp</dimen>

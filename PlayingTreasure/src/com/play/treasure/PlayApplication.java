@@ -196,15 +196,21 @@ public class PlayApplication extends Application {
         mMyLocationListener = new MyLocationListener();
 
         // 定位初始化
-        mLocationClient = new LocationClient(this);
+        mLocationClient = new LocationClient(getApplicationContext());
         mLocationClient.registerLocationListener(mMyLocationListener);
         LocationClientOption option = new LocationClientOption();
+        option.setLocationMode(LocationClientOption.LocationMode.Hight_Accuracy);
         option.setOpenGps(true);// 打开gps
         option.setCoorType("bd09ll");// 返回的定位结果是百度经纬度,默认值gcj02
         option.setScanSpan(1000);
         option.setIsNeedAddress(true);
         mLocationClient.setLocOption(option);
         mLocationClient.start();
+        if (mLocationClient != null && mLocationClient.isStarted()) {
+            mLocationClient.requestLocation();
+        } else {
+            Log.d("qjh", "locClient is null or not started");
+        }
         try {
             packageInfo = getPackageManager().getPackageInfo(getPackageName(), 0);
         } catch (NameNotFoundException e) {
@@ -388,6 +394,7 @@ public class PlayApplication extends Application {
             longitude = String.valueOf(location.getLongitude());
             latitude = String.valueOf(location.getLatitude());
             address = location.getAddrStr();
+            Log.d("qjh","lon = " + longitude+ ",  lat = "+latitude+",  address = "+address);
         }
     }
 

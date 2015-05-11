@@ -331,6 +331,9 @@ public class SlideShowView extends LinearLayout {
             super.onPostExecute(result);
             if (result != null) {
                 try {
+                    if (result.getResult() == null) {
+                        return;
+                    }
                     System.out.println(result.getResult());
                     JSONArray json = new JSONArray(result.getResult());
                     Banner banner = null;

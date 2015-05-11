@@ -11,6 +11,11 @@ import com.lidroid.xutils.BitmapUtils;
 import com.lidroid.xutils.bitmap.BitmapDisplayConfig;
 import com.lidroid.xutils.bitmap.callback.BitmapLoadFrom;
 import com.lidroid.xutils.bitmap.callback.DefaultBitmapLoadCallBack;
+import com.nostra13.universalimageloader.core.DisplayImageOptions;
+import com.nostra13.universalimageloader.core.ImageLoader;
+import com.nostra13.universalimageloader.core.assist.FailReason;
+import com.nostra13.universalimageloader.core.display.FadeInBitmapDisplayer;
+import com.nostra13.universalimageloader.core.listener.ImageLoadingListener;
 import com.play.treasure.activity.PlayDetailActivity;
 import com.play.treasure.activity.PlayDetailMineActivity;
 import com.play.treasure.network.NetworkConfig;
@@ -46,7 +51,7 @@ public class ShopImageActivity extends Activity {
     private CommonProgressDialog progressDialog;
     private PlayApplication mApplication;
     private String uid;
-
+    private DisplayImageOptions options;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -62,6 +67,15 @@ public class ShopImageActivity extends Activity {
         listView.setAdapter(adapter);
         progressDialog = new CommonProgressDialog(this, R.style.dialog);
         progressDialog.setMsg("加载中...");
+        options = new DisplayImageOptions.Builder()
+                .showImageForEmptyUri(R.drawable.default_icon)
+                .showImageOnLoading(R.drawable.default_icon)
+                .showImageOnFail(R.drawable.default_icon)
+                .cacheInMemory(true)
+                .cacheOnDisk(true)
+                .considerExifParams(true)
+                .displayer(new FadeInBitmapDisplayer(200))
+                .build();
         new ShopImageTask().execute();
     }
 
@@ -94,14 +108,37 @@ public class ShopImageActivity extends Activity {
             if (arg1 == null) {
                 ImageView view = new ImageView(ShopImageActivity.this);
                 DisplayMetrics metrics = getResources().getDisplayMetrics();
-                view.setImageBitmap(readBitMap(ShopImageActivity.this, R.drawable.empty_photo, metrics.widthPixels, metrics.heightPixels / 3));
+//                view.setImageBitmap(readBitMap(ShopImageActivity.this, R.drawable.empty_photo, metrics.widthPixels, metrics.heightPixels / 3));
                 view.setLayoutParams(new AbsListView.LayoutParams(AbsListView.LayoutParams.MATCH_PARENT, metrics.heightPixels / 3));
                 arg1 = view;
                 arg1.setOnTouchListener(null);
             }
-            ImageView imageView = (ImageView) arg1;
-            bitmapUtils.display(imageView, NetworkConfig.baseImgUrl + imageUrlStrings.get(arg0),
-                    new CustomBitmapLoadCallBack(imageView));
+            final ImageView imageView = (ImageView) arg1;
+//            imageView.setScaleType(ScaleType.CENTER);
+            ImageLoader.getInstance().displayImage(NetworkConfig.baseImgUrl + imageUrlStrings.get(arg0), imageView, options, new ImageLoadingListener() {
+                @Override
+                public void onLoadingStarted(String s, View view) {
+                    imageView.setBackgroundResource(R.drawable.default_icon);
+                }
+
+                @Override
+                public void onLoadingFailed(String s, View view, FailReason failReason) {
+                    imageView.setBackgroundResource(R.drawable.default_icon);
+                }
+
+                @Override
+                public void onLoadingComplete(String s, View view, Bitmap bitmap) {
+//                    Bitmap bitmap1 = PictureUtils.imageZoom(bitmap, 100);
+                    setAsetBitmap(bitmap, ShopImageActivity.this, imageView, Functions.sw);
+                }
+
+                @Override
+                public void onLoadingCancelled(String s, View view) {
+                    imageView.setBackgroundResource(R.drawable.default_icon);
+                }
+            });
+//            bitmapUtils.display(imageView, NetworkConfig.baseImgUrl + imageUrlStrings.get(arg0),
+//                    new CustomBitmapLoadCallBack(imageView));
             return arg1;
         }
     }

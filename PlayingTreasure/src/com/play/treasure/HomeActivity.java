@@ -66,7 +66,7 @@ public class HomeActivity extends BackActivity
         }
 		titleCenter = (TextView)findViewById(R.id.title_bar_center);
 		titleCenter.setText("商  城");
-		titleCenter.setTextSize(16);
+//		titleCenter.setTextSize(16);
 		titleCenter.setVisibility(View.VISIBLE);
 		
 		progressDialog = CommonProgressDialog.getInstance(this);
@@ -201,7 +201,7 @@ public class HomeActivity extends BackActivity
 		protected void onPreExecute() 
 		{
 			super.onPreExecute();
-			if(!progressDialog.isShowing()){
+			if(!HomeActivity.this.isFinishing()&&!progressDialog.isShowing()){
 				progressDialog.show();
 			}
 		}

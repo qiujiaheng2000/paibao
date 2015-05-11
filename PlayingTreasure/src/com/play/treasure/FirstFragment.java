@@ -61,120 +61,121 @@ import com.play.treasure.network.NetworkConfig;
 import com.play.treasure.network.model.NetworkBeanArray;
 import com.play.treasure.utils.CommonProgressDialog;
 import com.play.treasure.waterfall.WaterfallAdapter;
+
 @SuppressWarnings("unused")
 public class FirstFragment extends Fragment {
 
-	private StaggeredGridView mGridView;
-	//private WaterfallAdapter mAdapter;
-	private ImageListAdapter mAdapter;
-	private PlayApplication mApplication;
-	private CommonProgressDialog progressDialog;
-	
-	
-	private Context context;
-	private View view;
-	
+    private StaggeredGridView mGridView;
+    //private WaterfallAdapter mAdapter;
+    private ImageListAdapter mAdapter;
+    private PlayApplication mApplication;
+    private CommonProgressDialog progressDialog;
+
+
+    private Context context;
+    private View view;
+
     String ccid;
-    String defaultCid="0";
-	protected boolean isBottemFlag = false;
-	protected int mStart =0;
-	protected int  mEnd  =5;
-	private boolean isRefrshing = false;
-	int cccid;
-	
-	private StaggeredGridView lvShow = null;
-	PullToRefreshStaggeredGridView mPullRefreshListView;
-//	private LinkedList<String> mListItems;
-	//private ListViewAdapter mAdapter;
-	float o_y = 0;
-	private LinkedList<Waterfall> founctionlist = new LinkedList<Waterfall>();
-	private LinkedList<Waterfall> temp = new LinkedList<Waterfall>();
-    private String  url  = "index.php/Home/Index/index";
-    int p=1;
-    String x="116.341405",y="40.051004";
-	String post_cate="0";
-    
-	private BitmapUtils bitmapUtils;
-	protected int scroll_y;
-	private Handler mHandler = new Handler(){
-		
-		@Override
-		public void handleMessage(Message msg) {
-			// TODO Auto-generated method stub
-			if(msg.what==1)
-			{
-				int flag = mPullRefreshListView.getScrollX();
-				Log.i("scroll-flag", ""+flag);
-				
-			}
-			super.handleMessage(msg);
-		}
-		
-	};
+    String defaultCid = "0";
+    protected boolean isBottemFlag = false;
+    protected int mStart = 0;
+    protected int mEnd = 5;
+    private boolean isRefrshing = false;
+    int cccid;
+
+    private StaggeredGridView lvShow = null;
+    PullToRefreshStaggeredGridView mPullRefreshListView;
+    //	private LinkedList<String> mListItems;
+    //private ListViewAdapter mAdapter;
+    float o_y = 0;
+    private LinkedList<Waterfall> founctionlist = new LinkedList<Waterfall>();
+    private LinkedList<Waterfall> temp = new LinkedList<Waterfall>();
+    private String url = "index.php/Home/Index/index";
+    int p = 1;
+    String x = "116.341405", y = "40.051004";
+    String post_cate = "0";
+
+    private BitmapUtils bitmapUtils;
+    protected int scroll_y;
+    private Handler mHandler = new Handler() {
+
+        @Override
+        public void handleMessage(Message msg) {
+            // TODO Auto-generated method stub
+            if (msg.what == 1) {
+                int flag = mPullRefreshListView.getScrollX();
+                Log.i("scroll-flag", "" + flag);
+
+            }
+            super.handleMessage(msg);
+        }
+
+    };
+
     public static FirstFragment newInstance(String s) {
-    	FirstFragment newFragment = new FirstFragment();
+        FirstFragment newFragment = new FirstFragment();
         Bundle bundle = new Bundle();
         bundle.putString("cid", s);
         newFragment.setArguments(bundle);
         return newFragment;
 
     }
-    
-	@Override
-	public void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
-		super.onCreate(savedInstanceState);
-		context = getActivity().getApplicationContext();
-		Bundle args = getArguments();
-		Log.i("create", "create");
-		mApplication = PlayApplication.getApplication();
 
-		progressDialog = CommonProgressDialog.getInstance(context);
-		ccid = args != null ? args.getString("cid") : defaultCid;
-	    post_cate = ccid;
-	}
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        // TODO Auto-generated method stub
+        super.onCreate(savedInstanceState);
+        context = getActivity().getApplicationContext();
+        Bundle args = getArguments();
+        Log.i("create", "create");
+        mApplication = PlayApplication.getApplication();
 
-	@SuppressLint("NewApi")
-	@Override
-	public View onCreateView(LayoutInflater inflater, ViewGroup container,
-			Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
-		view = inflater.inflate(R.layout.fragment_com, container,false);		
-		mPullRefreshListView = (PullToRefreshStaggeredGridView) view.findViewById(R.id.grid_view);
-		cccid = Integer.parseInt(ccid);
-		initListView();
-	//	getData();
-	//	mAdapter = new WaterfallAdapter(getActivity());
-		mAdapter = new ImageListAdapter(getActivity(),new ArrayList<Waterfall>());
-		mGridView.setAdapter(mAdapter);
-		mGridView.setOnItemClickListener(mAdapter);
-		new WaterfallTask().execute();
-	 	//getListMasData(p,x,y,post_cate);;
-		Log.i("onCreateView", "onCreateView");
-		return view;
-	}
-	@SuppressLint("NewApi")
-	public void initListView()
-	{
-		//mListItems = new LinkedList<String>();
-		//mListItems.addAll(Arrays.asList(mStrings));
-		//mAdapter = new ArrayAdapter<String>(this,
-		//		android.R.layout.simple_list_item_1, mListItems);
-	//	mAdapter = new ListViewAdapter(this.getActivity());
-		mPullRefreshListView.setMode(Mode.BOTH);
-		
-		mPullRefreshListView.getLoadingLayoutProxy(true, false).setLastUpdatedLabel("上次刷新时间");
-		mPullRefreshListView.getLoadingLayoutProxy(true, false).setPullLabel("");
-		mPullRefreshListView.getLoadingLayoutProxy(true, false).setRefreshingLabel("正在刷新...");
-		mPullRefreshListView.getLoadingLayoutProxy(true, false).setReleaseLabel("松开刷新");
-		
-		mPullRefreshListView.getLoadingLayoutProxy(false, true).setLastUpdatedLabel("上次加载时间");
-		mPullRefreshListView.getLoadingLayoutProxy(false, true).setPullLabel("");
-		mPullRefreshListView.getLoadingLayoutProxy(false, true).setRefreshingLabel("正在加载...");
-		mPullRefreshListView.getLoadingLayoutProxy(false, true).setReleaseLabel("松开加载");
-		
-		mGridView = mPullRefreshListView.getRefreshableView();
-	   /* mGridView.setOnTouchListener(new OnTouchListener(){
+        progressDialog = CommonProgressDialog.getInstance(context);
+        ccid = args != null ? args.getString("cid") : defaultCid;
+        post_cate = ccid;
+    }
+
+    @SuppressLint("NewApi")
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // TODO Auto-generated method stub
+        view = inflater.inflate(R.layout.fragment_com, container, false);
+        mPullRefreshListView = (PullToRefreshStaggeredGridView) view.findViewById(R.id.grid_view);
+        cccid = Integer.parseInt(ccid);
+        initListView();
+        //	getData();
+        //	mAdapter = new WaterfallAdapter(getActivity());
+        mAdapter = new ImageListAdapter(getActivity(), new ArrayList<Waterfall>());
+        mGridView.setAdapter(mAdapter);
+        mGridView.setOnItemClickListener(mAdapter);
+        new WaterfallTask().execute();
+        //getListMasData(p,x,y,post_cate);;
+        Log.i("onCreateView", "onCreateView");
+        return view;
+    }
+
+    @SuppressLint("NewApi")
+    public void initListView() {
+        //mListItems = new LinkedList<String>();
+        //mListItems.addAll(Arrays.asList(mStrings));
+        //mAdapter = new ArrayAdapter<String>(this,
+        //		android.R.layout.simple_list_item_1, mListItems);
+        //	mAdapter = new ListViewAdapter(this.getActivity());
+        mPullRefreshListView.setMode(Mode.BOTH);
+
+        mPullRefreshListView.getLoadingLayoutProxy(true, false).setLastUpdatedLabel("上次刷新时间");
+        mPullRefreshListView.getLoadingLayoutProxy(true, false).setPullLabel("");
+        mPullRefreshListView.getLoadingLayoutProxy(true, false).setRefreshingLabel("正在刷新...");
+        mPullRefreshListView.getLoadingLayoutProxy(true, false).setReleaseLabel("松开刷新");
+
+        mPullRefreshListView.getLoadingLayoutProxy(false, true).setLastUpdatedLabel("上次加载时间");
+        mPullRefreshListView.getLoadingLayoutProxy(false, true).setPullLabel("");
+        mPullRefreshListView.getLoadingLayoutProxy(false, true).setRefreshingLabel("正在加载...");
+        mPullRefreshListView.getLoadingLayoutProxy(false, true).setReleaseLabel("松开加载");
+
+        mGridView = mPullRefreshListView.getRefreshableView();
+       /* mGridView.setOnTouchListener(new OnTouchListener(){
 
 			@Override
 			public boolean onTouch(View arg0, MotionEvent event) {
@@ -240,129 +241,115 @@ public class FirstFragment extends Fragment {
 			}
 			
 		});*/
-		mPullRefreshListView.setOnRefreshListener(new OnRefreshListener<StaggeredGridView>() {
+        mPullRefreshListView.setOnRefreshListener(new OnRefreshListener<StaggeredGridView>() {
 
-			@SuppressLint("NewApi")
-			@Override
-			public void onRefresh(PullToRefreshBase<StaggeredGridView> refreshView) {
-				String label = DateUtils.formatDateTime(FirstFragment.this.getActivity(),System.currentTimeMillis(),
-						DateUtils.FORMAT_SHOW_TIME | DateUtils.FORMAT_SHOW_DATE | DateUtils.FORMAT_ABBREV_ALL);
+            @SuppressLint("NewApi")
+            @Override
+            public void onRefresh(PullToRefreshBase<StaggeredGridView> refreshView) {
+                String label = DateUtils.formatDateTime(FirstFragment.this.getActivity(), System.currentTimeMillis(),
+                        DateUtils.FORMAT_SHOW_TIME | DateUtils.FORMAT_SHOW_DATE | DateUtils.FORMAT_ABBREV_ALL);
 
-				if (refreshView.isHeaderShown()) {
-					
-					refreshView.getLoadingLayoutProxy().setLastUpdatedLabel(label);
-					// Do work to refresh the list here.
-				 //	new GetDataTask().execute();
-				// 	new GetHeaderDataTask().execute();
-				//	scroll_y =
-					mAdapter.clear();
+                if (refreshView.isHeaderShown()) {
+
+                    refreshView.getLoadingLayoutProxy().setLastUpdatedLabel(label);
+                    // Do work to refresh the list here.
+                    //	new GetDataTask().execute();
+                    // 	new GetHeaderDataTask().execute();
+                    //	scroll_y =
+                    mAdapter.clear();
 			/*		mAdapter.notifyDataSetInvalidated();*/
-					p = 1;
-					scroll_y=0;
-				//	getData();
-					new WaterfallTask().execute();
-				} else {
-					//founctionlist.clear(); 
-					
-					p++;
-			//		getData();
-				 	scroll_y = founctionlist.size();
-				//    getListMasData(p,x,y,post_cate);
-				 	new WaterfallTask().execute();
-					//new GetBottomDataTask().execute();
-				}
+                    p = 1;
+                    scroll_y = 0;
+                    //	getData();
+                    new WaterfallTask().execute();
+                } else {
+                    //founctionlist.clear();
 
-				// Update the LastUpdatedLabel
-			}
-		
-		});
-	}
-	public void getData()
-	{
-		for(int i = 0;i<30;i++)
-		{
-			Waterfall wf = null;
-			try {
-				wf = new Waterfall(null);
-			} catch (JSONException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			founctionlist.add(wf);
-		}
+                    p++;
+                    //		getData();
+                    scroll_y = founctionlist.size();
+                    //    getListMasData(p,x,y,post_cate);
+                    new WaterfallTask().execute();
+                    //new GetBottomDataTask().execute();
+                }
 
-	//	mAdapter.notifyDataSetChanged();
-		mPullRefreshListView.onRefreshComplete();
-	}
-	public class WaterfallTask extends AsyncTask<Void, Void, NetworkBeanArray> 
-	{
-		@Override
-		protected void onPreExecute() 
-		{
-			if(!progressDialog.isShowing()){
-				progressDialog.show();
-			}
-			super.onPreExecute();
-		}
+                // Update the LastUpdatedLabel
+            }
 
-		@Override
-		protected NetworkBeanArray doInBackground(Void... params) 
-		{
-			try 
-			{
-				return mApplication.getNetApi().homeWaterfall(mApplication.getLongitude(),mApplication.getLatitude(),String.valueOf(p), ""+post_cate);
-			} 
-			catch (NullPointerException ex) 
-			{
-				ex.printStackTrace();
-			}
-			return null;
-		}
+        });
+    }
 
-		@Override
-		protected void onPostExecute(NetworkBeanArray result) 
-		{
-			if (result != null) 
-			{
-				progressDialog.dismiss();
-				try 
-				{
-					JSONArray jsonArray = new JSONArray(result.getResult());
-					List<Waterfall> waterList = new ArrayList<Waterfall>();
-					Waterfall water = null;
-					for (int i = 0; i < jsonArray.length(); i++)
-					{
-						water = new Waterfall(jsonArray.getJSONObject(i));
-						waterList.add(water);
-					}
-					if(waterList.size() == 0){
-						p--;
-					}
-					else{
-						//mAdapter.addAll(waterList);
-						mAdapter.addItemLast(waterList);
-						//mAdapter.notifyDataSetChanged();
-						if(p == 2){
-							Message msg  = MallActivity.controllHandler.obtainMessage();
-							msg.what = 1;
-							msg.sendToTarget();
-						}
-						else if(p == 1){
-							Message msg  = MallActivity.controllHandler.obtainMessage();
-							msg.what     =2;
-							msg.sendToTarget();
-						}
-					}
-					mPullRefreshListView.onRefreshComplete();
-					mPullRefreshListView.scrollTo(0, scroll_y);
-				} 
-				catch (Exception e) 
-				{
-					mPullRefreshListView.onRefreshComplete();
-					e.printStackTrace();
-				}
-			}
-		}
-	}
+    public void getData() {
+        for (int i = 0; i < 30; i++) {
+            Waterfall wf = null;
+            try {
+                wf = new Waterfall(null);
+            } catch (JSONException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+            founctionlist.add(wf);
+        }
+
+        //	mAdapter.notifyDataSetChanged();
+        mPullRefreshListView.onRefreshComplete();
+    }
+
+    public class WaterfallTask extends AsyncTask<Void, Void, NetworkBeanArray> {
+        @Override
+        protected void onPreExecute() {
+            if (!getActivity().isFinishing() && !progressDialog.isShowing()) {
+                progressDialog.show();
+            }
+            super.onPreExecute();
+        }
+
+        @Override
+        protected NetworkBeanArray doInBackground(Void... params) {
+            try {
+                return mApplication.getNetApi().homeWaterfall(mApplication.getLongitude(), mApplication.getLatitude(), String.valueOf(p), "" + post_cate);
+            } catch (NullPointerException ex) {
+                ex.printStackTrace();
+            }
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(NetworkBeanArray result) {
+            if (result != null) {
+                progressDialog.dismiss();
+                try {
+                    JSONArray jsonArray = new JSONArray(result.getResult());
+                    List<Waterfall> waterList = new ArrayList<Waterfall>();
+                    Waterfall water = null;
+                    for (int i = 0; i < jsonArray.length(); i++) {
+                        water = new Waterfall(jsonArray.getJSONObject(i));
+                        waterList.add(water);
+                    }
+                    if (waterList.size() == 0) {
+                        p--;
+                    } else {
+                        //mAdapter.addAll(waterList);
+                        mAdapter.addItemLast(waterList);
+                        //mAdapter.notifyDataSetChanged();
+                        if (p == 2) {
+                            Message msg = MallActivity.controllHandler.obtainMessage();
+                            msg.what = 1;
+                            msg.sendToTarget();
+                        } else if (p == 1) {
+                            Message msg = MallActivity.controllHandler.obtainMessage();
+                            msg.what = 2;
+                            msg.sendToTarget();
+                        }
+                    }
+                    mPullRefreshListView.onRefreshComplete();
+                    mPullRefreshListView.scrollTo(0, scroll_y);
+                } catch (Exception e) {
+                    mPullRefreshListView.onRefreshComplete();
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
 
 }

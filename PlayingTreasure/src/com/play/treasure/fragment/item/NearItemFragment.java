@@ -217,7 +217,10 @@ public class NearItemFragment extends Fragment
 		protected void onPreExecute() 
 		{
 			super.onPreExecute();
-			progressDialog.show();
+			if (!getActivity().isFinishing() && !progressDialog.isShowing()) {
+				progressDialog.show();
+			}
+
 		}
 
 		@Override

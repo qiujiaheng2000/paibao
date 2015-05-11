@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/main"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical" >
+<LinearLayout android:id="@+id/main"
+              xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
 
     <RelativeLayout
         android:id="@+id/top_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/top_title_bar" >
+        android:background="@drawable/top_title_bar">
 
         <ImageView
             android:id="@+id/title_bar_left"
@@ -20,19 +20,20 @@
             android:layout_marginLeft="13dp"
             android:gravity="center"
             android:padding="5dp"
-            android:visibility="gone" />
+            android:visibility="gone"/>
 
         <TextView
             android:id="@+id/title_bar_center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
             android:layout_centerInParent="true"
+            android:layout_centerVertical="true"
             android:gravity="center"
-            android:textColor="#FFFFFF"
-            android:textStyle="bold"
             android:padding="5dp"
-            android:visibility="gone" />
+            android:textColor="#FFFFFF"
+            android:textSize="@dimen/title_bar_textsize"
+            android:textStyle="bold"
+            android:visibility="gone"/>
 
         <ImageView
             android:id="@+id/title_bar_category"
@@ -41,7 +42,7 @@
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:layout_marginRight="60dp"
-            android:visibility="gone" />
+            android:visibility="gone"/>
 
         <ImageView
             android:id="@+id/title_bar_location"
@@ -50,36 +51,39 @@
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:layout_marginRight="13dp"
-            android:visibility="gone" />
+            android:visibility="gone"/>
     </RelativeLayout>
-	<LinearLayout
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#e3e3e3"
-        
-        android:orientation="horizontal" >
+
+        android:orientation="horizontal">
 
         <EditText
             android:id="@+id/search_edit"
             style="@style/my_edittext_style"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:imeOptions="actionSearch"
-            android:layout_marginTop="10dp"
             android:layout_marginBottom="10dip"
+            android:layout_marginTop="10dp"
             android:drawableLeft="@drawable/search"
-            android:paddingLeft="20dp"
             android:drawablePadding="10dp"
             android:hint="搜索"
+            android:imeOptions="actionSearch"
+            android:paddingLeft="20dp"
             android:singleLine="true"
-            android:textSize="16sp" 
-            android:textColor="@android:color/black"/>
+            android:textColor="@android:color/black"
+            android:textSize="16sp"/>
     </LinearLayout>
-    <RelativeLayout 
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    >
-        <ImageView 
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+        <ImageView
             android:id="@+id/arrow_left"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -88,17 +92,17 @@
             android:layout_marginLeft="10dp"
             android:background="@drawable/qiancan"/>
 
-    <com.play.treasure.ui.tab.TabPageIndicator
-        android:id="@+id/indicator"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
-        />
+        <com.play.treasure.ui.tab.TabPageIndicator
+            android:id="@+id/indicator"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            />
 
-    <!-- android:background="@drawable/base_action_bar_bg" -->
-    <ImageView 
+        <!-- android:background="@drawable/base_action_bar_bg" -->
+        <ImageView
             android:id="@+id/arrow_right"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -106,17 +110,19 @@
             android:layout_centerVertical="true"
             android:layout_marginRight="10dp"
             android:background="@drawable/houcan"/>
-</RelativeLayout>
-<ImageView
+    </RelativeLayout>
+
+    <ImageView
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:scaleType="matrix"
-        android:background="@drawable/item_divider" />
+        android:background="@drawable/item_divider"
+        android:scaleType="matrix"/>
+
     <android.support.v4.view.ViewPager
         android:id="@+id/pager"
         android:layout_width="fill_parent"
         android:layout_height="0dp"
         android:layout_marginTop="6dp"
-        android:layout_weight="1" />
+        android:layout_weight="1"/>
 
 </LinearLayout>

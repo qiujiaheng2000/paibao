@@ -67,12 +67,12 @@
             </LinearLayout>
         </RelativeLayout>
         <TextView
-            android:paddingLeft="15dp"
-            android:paddingRight="15dp"
-            android:paddingBottom="3dp"
-            android:paddingTop="3dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingBottom="2dp"
+            android:paddingTop="2dp"
+            android:textSize="@dimen/android_public_textsize_16pt"
             android:textColor="@color/white"
-            android:textSize="@dimen/android_public_textsize_14pt"
             android:layout_width="70dp"
             android:gravity="center"
             android:layout_height="wrap_content"

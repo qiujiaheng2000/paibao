@@ -28,7 +28,7 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:textColor="#FFFFFF"
-            android:textSize="@dimen/pub_textsize_twenty_four" />
+            android:textSize="@dimen/title_bar_textsize" />
 
         <ImageView
             android:id="@+id/title_bar_right"

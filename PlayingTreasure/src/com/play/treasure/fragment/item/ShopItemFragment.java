@@ -196,7 +196,9 @@ public class ShopItemFragment extends Fragment {
     private class WaterfallTask extends AsyncTask<Void, Void, NetworkBeanArray> {
         @Override
         protected void onPreExecute() {
-            progressDialog.show();
+            if (!getActivity().isFinishing() && !progressDialog.isShowing()) {
+                progressDialog.show();
+            }
             super.onPreExecute();
         }
 

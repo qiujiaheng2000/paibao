@@ -58,7 +58,7 @@ public class WaterfallAdapter extends BaseListAdapter<Waterfall> implements
         this.mContext = context;
         this.mLayoutInflater = LayoutInflater.from(mContext);
         this.mRandom = new Random();
-        this.bitmapUtils = Functions.initbimapxUtils(bitmapUtils, this.mContext);
+        /*this.bitmapUtils = Functions.initbimapxUtils(bitmapUtils, this.mContext);
         windowManager = (WindowManager) mContext.getSystemService(Context.WINDOW_SERVICE);
         Functions.sw = windowManager.getDefaultDisplay().getWidth();
         Functions.sh = windowManager.getDefaultDisplay().getHeight();
@@ -72,7 +72,7 @@ public class WaterfallAdapter extends BaseListAdapter<Waterfall> implements
 
         sp.putInt("sw", sw);
         sp.putInt("sh", sh);
-        Log.e("test", "sw: " + sw + ", sh " + sh);
+        Log.e("test", "sw: " + sw + ", sh " + sh);*/
 
         int screenWidth = UiUtils.getScreenWidthAndSizeInPx(((Activity) context))[0];
         itemWidth = (screenWidth / 2 - 20);

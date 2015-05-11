@@ -141,10 +141,10 @@ public class PictureUtils {
 private static Bitmap comp(Bitmap image,double maxSize) {
 		
 		ByteArrayOutputStream baos = new ByteArrayOutputStream();		
-		image.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+		image.compress(Bitmap.CompressFormat.PNG, 100, baos);
 		if( baos.toByteArray().length / 1024>1024) {//判断如果图片大于1M,进行压缩避免在生成图片（BitmapFactory.decodeStream）时溢出	
 			baos.reset();//重置baos即清空baos
-			image.compress(Bitmap.CompressFormat.JPEG, 50, baos);//这里压缩50%，把压缩后的数据存放到baos中
+			image.compress(Bitmap.CompressFormat.PNG, 50, baos);//这里压缩50%，把压缩后的数据存放到baos中
 		
 		ByteArrayInputStream isBm = new ByteArrayInputStream(baos.toByteArray());
 		BitmapFactory.Options newOpts = new BitmapFactory.Options();

@@ -130,7 +130,7 @@ public class PlayDetailActivity extends Activity implements
         titleCenter = (TextView) findViewById(R.id.title_bar_center);
         titleCenter.setText("宝贝详情");
         titleCenter.setVisibility(View.VISIBLE);
-        titleCenter.setTextSize(16);
+//        titleCenter.setTextSize(16);
 
         titleRight = (ImageView) findViewById(R.id.title_bar_right);
         titleRight.setImageResource(R.drawable.share);

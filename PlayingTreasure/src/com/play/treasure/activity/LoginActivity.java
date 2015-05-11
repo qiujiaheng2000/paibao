@@ -80,7 +80,7 @@ public class LoginActivity extends Activity implements OnClickListener
 		titleCenter = (TextView) findViewById(R.id.title_bar_center);
 		titleCenter.setText("登陆");
 		titleCenter.setVisibility(View.VISIBLE);
-		titleCenter.setTextSize(16);
+//		titleCenter.setTextSize(16);
 		
 		progressDialog = CommonProgressDialog.getInstance(this);
 		
