@@ -2,95 +2,18 @@
 <items version="2" >
 
     <item
-        jar="/Users/jhqiu/Desktop/paibao/paibao/Paibao/PlayingTreasure/libs/mframework.jar"
+        jar="/Users/jhqiu/Desktop/paibao/paibao/Paibao/PlayingTreasure/build/intermediates/exploded-aar/Paibao/library2/unspecified/jars/classes.jar"
         jumboMode="false"
         revision="21.1.2"
-        sha1="25509058b34a5ee08dbf66e57078e3083735d200">
-        <dex dex="/Users/jhqiu/Desktop/paibao/paibao/Paibao/PlayingTreasure/build/intermediates/pre-dexed/release/mframework-2da07131be971ac73e07efdea3b7aba8f257a844.jar" />
+        sha1="ffb7b83d1c60355ea96bb2e5560288df0df389f8">
+        <dex dex="/Users/jhqiu/Desktop/paibao/paibao/Paibao/PlayingTreasure/build/intermediates/pre-dexed/release/classes-5c40ff41fc4cc44ca0e8d45f4a0089a537107f75.jar" />
     </item>
     <item
-        jar="/Users/jhqiu/Desktop/paibao/paibao/Paibao/PlayingTreasure/libs/ShareSDK-SinaWeibo-2.5.1.jar"
+        jar="/Users/jhqiu/Desktop/paibao/paibao/Paibao/PlayingTreasure/libs/ShareSDK-Email-2.6.0.jar"
         jumboMode="false"
         revision="21.1.2"
-        sha1="b9900d9f8ea9ca4960f65cfd39c0e3f16864006b">
-        <dex dex="/Users/jhqiu/Desktop/paibao/paibao/Paibao/PlayingTreasure/build/intermediates/pre-dexed/release/ShareSDK-SinaWeibo-2.5.1-853b77d2e1f3028bd819eced6af1045ea22b3693.jar" />
-    </item>
-    <item
-        jar="/Users/jhqiu/Desktop/paibao/paibao/Paibao/PlayingTreasure/libs/ShareSDK-Wechat-Core-2.5.1.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="d065038b406d2da5e75ad726cb9fbb7c47badaab">
-        <dex dex="/Users/jhqiu/Desktop/paibao/paibao/Paibao/PlayingTreasure/build/intermediates/pre-dexed/release/ShareSDK-Wechat-Core-2.5.1-42038b23c8961390e5cfc33055245353e31a1590.jar" />
-    </item>
-    <item
-        jar="/Users/jhqiu/Desktop/paibao/paibao/Paibao/PlayingTreasure/libs/ShareSDK-QQ-2.5.1.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="82e0dc9ece50f684dfd17f495fdbdae0c3a5e74d">
-        <dex dex="/Users/jhqiu/Desktop/paibao/paibao/Paibao/PlayingTreasure/build/intermediates/pre-dexed/release/ShareSDK-QQ-2.5.1-f53bf25b5b7181b1598a1dcc65fc7f0048962ab7.jar" />
-    </item>
-    <item
-        jar="/Users/jhqiu/Desktop/paibao/paibao/Paibao/PlayingTreasure/libs/picasso-2.4.0.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="f36d2d4e3a36b3259aaf9d004d29b4cdc6c1bfb2">
-        <dex dex="/Users/jhqiu/Desktop/paibao/paibao/Paibao/PlayingTreasure/build/intermediates/pre-dexed/release/picasso-2.4.0-dc83de42716c1b6f7d18150203cd860f01687ace.jar" />
-    </item>
-    <item
-        jar="/Users/jhqiu/Desktop/paibao/paibao/Paibao/PlayingTreasure/libs/universal-image-loader-1.9.3.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="a85588bec3e2c4584d593d3f15df1677321bca72">
-        <dex dex="/Users/jhqiu/Desktop/paibao/paibao/Paibao/PlayingTreasure/build/intermediates/pre-dexed/release/universal-image-loader-1.9.3-dea83d0ded6ba78a4c9b169dea1e565655490204.jar" />
-    </item>
-    <item
-        jar="/Users/jhqiu/Desktop/paibao/paibao/Paibao/PlayingTreasure/build/intermediates/exploded-aar/Paibao/android-support-v7-appcompat/unspecified/jars/libs/android-support-v7-appcompat.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="6c77cd21db2ca4fe31aa1fd31417fe63be29e733">
-        <dex dex="/Users/jhqiu/Desktop/paibao/paibao/Paibao/PlayingTreasure/build/intermediates/pre-dexed/release/android-support-v7-appcompat-f42667bab7b04dcd8b5b77cfc410f45707cf4f31.jar" />
-    </item>
-    <item
-        jar="/Users/jhqiu/Desktop/paibao/paibao/Paibao/PlayingTreasure/libs/ShareSDK-Core-2.5.1.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="5042c075291de8c09cedb1a674d480f0037c3a19">
-        <dex dex="/Users/jhqiu/Desktop/paibao/paibao/Paibao/PlayingTreasure/build/intermediates/pre-dexed/release/ShareSDK-Core-2.5.1-f6d785b822bd4fc9f209f5b9e2f2bc013ce22755.jar" />
-    </item>
-    <item
-        jar="/Users/jhqiu/Desktop/paibao/paibao/Paibao/PlayingTreasure/libs/ShareSDK-Renren-2.5.1.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="546f24df34a5f91a6df78c50154be3131ddaa674">
-        <dex dex="/Users/jhqiu/Desktop/paibao/paibao/Paibao/PlayingTreasure/build/intermediates/pre-dexed/release/ShareSDK-Renren-2.5.1-55328aacf6ca2a1b428380333b115c9c4f6452f1.jar" />
-    </item>
-    <item
-        jar="/Users/jhqiu/Desktop/paibao/paibao/Paibao/PlayingTreasure/libs/locSDK_5.0.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="58ba7f330d7f1a0de4464791e73a3123a47fd1d3">
-        <dex dex="/Users/jhqiu/Desktop/paibao/paibao/Paibao/PlayingTreasure/build/intermediates/pre-dexed/release/locSDK_5.0-68c3efbf089d0afb29e5fbcc2eb169ecff728f53.jar" />
-    </item>
-    <item
-        jar="/Users/jhqiu/Desktop/paibao/paibao/Paibao/PlayingTreasure/libs/ShareSDK-Douban-2.5.1.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="205a2b915984129527aebf1ecf9dcdf3e529fb22">
-        <dex dex="/Users/jhqiu/Desktop/paibao/paibao/Paibao/PlayingTreasure/build/intermediates/pre-dexed/release/ShareSDK-Douban-2.5.1-991f08158166888dda70c809a308c0128df9fc5c.jar" />
-    </item>
-    <item
-        jar="/Users/jhqiu/Desktop/paibao/paibao/Paibao/PlayingTreasure/libs/xUtils-2.6.14.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="f10c51f3e0732fdeefe6e104279a58e275879b6c">
-        <dex dex="/Users/jhqiu/Desktop/paibao/paibao/Paibao/PlayingTreasure/build/intermediates/pre-dexed/release/xUtils-2.6.14-c3e6d5e7aeacb9a71dd5cebe155e77f879452aa8.jar" />
-    </item>
-    <item
-        jar="/Users/jhqiu/Desktop/paibao/paibao/Paibao/PlayingTreasure/libs/ShareSDK-TencentWeibo-2.5.1.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="2d7f36b7871442cf60f8f17089cfa201cb17d53c">
-        <dex dex="/Users/jhqiu/Desktop/paibao/paibao/Paibao/PlayingTreasure/build/intermediates/pre-dexed/release/ShareSDK-TencentWeibo-2.5.1-4f33d5e7866d802caf0b4bbcec8e699ec887e449.jar" />
+        sha1="f86f202ecf6d23e8f811d6e2e22be4641c03b5bf">
+        <dex dex="/Users/jhqiu/Desktop/paibao/paibao/Paibao/PlayingTreasure/build/intermediates/pre-dexed/release/ShareSDK-Email-2.6.0-c7c8a677d44214a5105a4bda08bdb3ca9e7d7d76.jar" />
     </item>
     <item
         jar="/Users/jhqiu/Desktop/paibao/paibao/Paibao/PlayingTreasure/build/intermediates/exploded-aar/Paibao/android-support-v7-appcompat/unspecified/jars/libs/android-support-v4.jar"
@@ -100,20 +23,6 @@
         <dex dex="/Users/jhqiu/Desktop/paibao/paibao/Paibao/PlayingTreasure/build/intermediates/pre-dexed/release/android-support-v4-05a8d11d1c2dad60fd41addc5ebc6370be9a81c3.jar" />
     </item>
     <item
-        jar="/Users/jhqiu/Desktop/paibao/paibao/Paibao/PlayingTreasure/libs/httpmime-4.0.1.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="9d99c393b45cb7abf8a104176fb751e32b1b4502">
-        <dex dex="/Users/jhqiu/Desktop/paibao/paibao/Paibao/PlayingTreasure/build/intermediates/pre-dexed/release/httpmime-4.0.1-690977c887f839acbf8fb0a4bef803d840e06628.jar" />
-    </item>
-    <item
-        jar="/Users/jhqiu/Desktop/paibao/paibao/Paibao/PlayingTreasure/libs/ShareSDK-Wechat-2.5.1.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="61d21a9e5650435bb6e09d3ebb9636cc0d492732">
-        <dex dex="/Users/jhqiu/Desktop/paibao/paibao/Paibao/PlayingTreasure/build/intermediates/pre-dexed/release/ShareSDK-Wechat-2.5.1-82ee7792618e4ba4f51d1c7a060d38a6b880e3ac.jar" />
-    </item>
-    <item
         jar="/Users/jhqiu/Desktop/paibao/paibao/Paibao/PlayingTreasure/build/intermediates/exploded-aar/Paibao/ParallaxScroll/unspecified/jars/classes.jar"
         jumboMode="false"
         revision="21.1.2"
@@ -121,11 +30,144 @@
         <dex dex="/Users/jhqiu/Desktop/paibao/paibao/Paibao/PlayingTreasure/build/intermediates/pre-dexed/release/classes-5fe8cd8d7d7f63477708f65064a5df2fc978bc97.jar" />
     </item>
     <item
-        jar="/Users/jhqiu/Desktop/paibao/paibao/Paibao/PlayingTreasure/libs/ShareSDK-QZone-2.5.1.jar"
+        jar="/Users/jhqiu/Desktop/paibao/paibao/Paibao/PlayingTreasure/libs/ShareSDK-QQ-2.6.0.jar"
         jumboMode="false"
         revision="21.1.2"
-        sha1="a96eb86ac75943191118a8020387cd2bb0ae6040">
-        <dex dex="/Users/jhqiu/Desktop/paibao/paibao/Paibao/PlayingTreasure/build/intermediates/pre-dexed/release/ShareSDK-QZone-2.5.1-65280c458c04ef3b0bb66ac676480d8fc629f72c.jar" />
+        sha1="e6c6b568ccacd915fbf96b9b73697fecb778d36e">
+        <dex dex="/Users/jhqiu/Desktop/paibao/paibao/Paibao/PlayingTreasure/build/intermediates/pre-dexed/release/ShareSDK-QQ-2.6.0-dc7dcfeb11610832a9082998cc25983eb272d525.jar" />
+    </item>
+    <item
+        jar="/Users/jhqiu/Desktop/paibao/paibao/Paibao/PlayingTreasure/build/intermediates/exploded-aar/Paibao/android-support-v7-appcompat/unspecified/jars/libs/android-support-v7-appcompat.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="6c77cd21db2ca4fe31aa1fd31417fe63be29e733">
+        <dex dex="/Users/jhqiu/Desktop/paibao/paibao/Paibao/PlayingTreasure/build/intermediates/pre-dexed/release/android-support-v7-appcompat-f42667bab7b04dcd8b5b77cfc410f45707cf4f31.jar" />
+    </item>
+    <item
+        jar="/Users/jhqiu/Desktop/paibao/paibao/Paibao/PlayingTreasure/libs/mframework.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="25509058b34a5ee08dbf66e57078e3083735d200">
+        <dex dex="/Users/jhqiu/Desktop/paibao/paibao/Paibao/PlayingTreasure/build/intermediates/pre-dexed/release/mframework-2da07131be971ac73e07efdea3b7aba8f257a844.jar" />
+    </item>
+    <item
+        jar="/Users/jhqiu/Desktop/paibao/paibao/Paibao/PlayingTreasure/libs/xUtils-2.6.14.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="f10c51f3e0732fdeefe6e104279a58e275879b6c">
+        <dex dex="/Users/jhqiu/Desktop/paibao/paibao/Paibao/PlayingTreasure/build/intermediates/pre-dexed/release/xUtils-2.6.14-c3e6d5e7aeacb9a71dd5cebe155e77f879452aa8.jar" />
+    </item>
+    <item
+        jar="/Users/jhqiu/Desktop/paibao/paibao/Paibao/PlayingTreasure/libs/ShareSDK-SinaWeibo-2.6.0.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="4850471ee42c51d046ac83448be0d56aa1dff1f5">
+        <dex dex="/Users/jhqiu/Desktop/paibao/paibao/Paibao/PlayingTreasure/build/intermediates/pre-dexed/release/ShareSDK-SinaWeibo-2.6.0-eba7c8f080271ee5e4e5bc8bf10011f5318e1b81.jar" />
+    </item>
+    <item
+        jar="/Users/jhqiu/Desktop/paibao/paibao/Paibao/PlayingTreasure/libs/umeng-analytics-v5.5.3.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="5d503ec571e2e98d972209afa203f94d11882c15">
+        <dex dex="/Users/jhqiu/Desktop/paibao/paibao/Paibao/PlayingTreasure/build/intermediates/pre-dexed/release/umeng-analytics-v5.5.3-bc4ac3b4e9007772c6b0040db629b84aad0bd31b.jar" />
+    </item>
+    <item
+        jar="/Users/jhqiu/Desktop/paibao/paibao/Paibao/PlayingTreasure/libs/ShareSDK-Wechat-2.6.0.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="af48a61a1270951dc870e1579a48a415ff10c1cc">
+        <dex dex="/Users/jhqiu/Desktop/paibao/paibao/Paibao/PlayingTreasure/build/intermediates/pre-dexed/release/ShareSDK-Wechat-2.6.0-babe393a05a9d0be72baf58a85535d517a5209e1.jar" />
+    </item>
+    <item
+        jar="/Users/jhqiu/Desktop/paibao/paibao/Paibao/PlayingTreasure/libs/apache-mime4j-0.6.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="945007627e8d12275d755081a9e609c018e1210d">
+        <dex dex="/Users/jhqiu/Desktop/paibao/paibao/Paibao/PlayingTreasure/build/intermediates/pre-dexed/release/apache-mime4j-0.6-bb84573a4b43bf3812fdce3166c97b75dfb16776.jar" />
+    </item>
+    <item
+        jar="/Users/jhqiu/Desktop/paibao/paibao/Paibao/PlayingTreasure/libs/ShareSDK-QZone-2.6.0.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="220b0f41eb09db85c24113a0f8d69cf1011b0e07">
+        <dex dex="/Users/jhqiu/Desktop/paibao/paibao/Paibao/PlayingTreasure/build/intermediates/pre-dexed/release/ShareSDK-QZone-2.6.0-fdcb879b34e9c7749b9f15e448db56f91761017d.jar" />
+    </item>
+    <item
+        jar="/Users/jhqiu/Desktop/paibao/paibao/Paibao/PlayingTreasure/libs/ShareSDK-Wechat-Favorite-2.6.0.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="a9d272ae8dcbc00d9a0c8709c72ce0b79f0982fa">
+        <dex dex="/Users/jhqiu/Desktop/paibao/paibao/Paibao/PlayingTreasure/build/intermediates/pre-dexed/release/ShareSDK-Wechat-Favorite-2.6.0-9bad3d1de165a9de7428ea3ff08d5d94ab093753.jar" />
+    </item>
+    <item
+        jar="/Users/jhqiu/Desktop/paibao/paibao/Paibao/PlayingTreasure/libs/ShareSDK-ShortMessage-2.6.0.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="b684edab91a8650bacc82b42a19ad683776d6eb4">
+        <dex dex="/Users/jhqiu/Desktop/paibao/paibao/Paibao/PlayingTreasure/build/intermediates/pre-dexed/release/ShareSDK-ShortMessage-2.6.0-6a6b7a0dd3b6315f7dd5f8ddd87b6b2356742449.jar" />
+    </item>
+    <item
+        jar="/Users/jhqiu/Desktop/paibao/paibao/Paibao/PlayingTreasure/libs/MobTools.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="b2cba35ceab382729de67845f613556d38a32133">
+        <dex dex="/Users/jhqiu/Desktop/paibao/paibao/Paibao/PlayingTreasure/build/intermediates/pre-dexed/release/MobTools-24a7cb728cfcf0ce946f452568a8d916c4fa2cc1.jar" />
+    </item>
+    <item
+        jar="/Users/jhqiu/Desktop/paibao/paibao/Paibao/PlayingTreasure/libs/ShareSDK-Wechat-Core-2.6.0.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="026345fd0ea8105f21cd9688849f1301232eecf9">
+        <dex dex="/Users/jhqiu/Desktop/paibao/paibao/Paibao/PlayingTreasure/build/intermediates/pre-dexed/release/ShareSDK-Wechat-Core-2.6.0-692438782781acb8aaf0c989beb755ea6c343993.jar" />
+    </item>
+    <item
+        jar="/Users/jhqiu/Desktop/paibao/paibao/Paibao/PlayingTreasure/libs/httpmime-4.0.1.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="9d99c393b45cb7abf8a104176fb751e32b1b4502">
+        <dex dex="/Users/jhqiu/Desktop/paibao/paibao/Paibao/PlayingTreasure/build/intermediates/pre-dexed/release/httpmime-4.0.1-690977c887f839acbf8fb0a4bef803d840e06628.jar" />
+    </item>
+    <item
+        jar="/Users/jhqiu/Desktop/paibao/paibao/Paibao/PlayingTreasure/libs/ShareSDK-Core-2.6.0.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="ce77708798f39a79b83785dd24dd551b4680e469">
+        <dex dex="/Users/jhqiu/Desktop/paibao/paibao/Paibao/PlayingTreasure/build/intermediates/pre-dexed/release/ShareSDK-Core-2.6.0-2652f364fc8a379b8337a609b0985a537e313fa3.jar" />
+    </item>
+    <item
+        jar="/Users/jhqiu/Desktop/paibao/paibao/Paibao/PlayingTreasure/libs/universal-image-loader-1.9.3.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="a85588bec3e2c4584d593d3f15df1677321bca72">
+        <dex dex="/Users/jhqiu/Desktop/paibao/paibao/Paibao/PlayingTreasure/build/intermediates/pre-dexed/release/universal-image-loader-1.9.3-dea83d0ded6ba78a4c9b169dea1e565655490204.jar" />
+    </item>
+    <item
+        jar="/Users/jhqiu/Desktop/paibao/paibao/Paibao/PlayingTreasure/libs/picasso-2.4.0.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="f36d2d4e3a36b3259aaf9d004d29b4cdc6c1bfb2">
+        <dex dex="/Users/jhqiu/Desktop/paibao/paibao/Paibao/PlayingTreasure/build/intermediates/pre-dexed/release/picasso-2.4.0-dc83de42716c1b6f7d18150203cd860f01687ace.jar" />
+    </item>
+    <item
+        jar="/Users/jhqiu/Desktop/paibao/paibao/Paibao/PlayingTreasure/libs/locSDK_5.0.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="58ba7f330d7f1a0de4464791e73a3123a47fd1d3">
+        <dex dex="/Users/jhqiu/Desktop/paibao/paibao/Paibao/PlayingTreasure/build/intermediates/pre-dexed/release/locSDK_5.0-68c3efbf089d0afb29e5fbcc2eb169ecff728f53.jar" />
+    </item>
+    <item
+        jar="/Users/jhqiu/Desktop/paibao/paibao/Paibao/PlayingTreasure/libs/ShareSDK-Wechat-Moments-2.6.0.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="58cc538afcaea68397481e5447836e62797551cc">
+        <dex dex="/Users/jhqiu/Desktop/paibao/paibao/Paibao/PlayingTreasure/build/intermediates/pre-dexed/release/ShareSDK-Wechat-Moments-2.6.0-deb9aa3f0caa73a49c41deccbfbd071297d293a3.jar" />
+    </item>
+    <item
+        jar="/Users/jhqiu/Desktop/paibao/paibao/Paibao/PlayingTreasure/libs/ShareSDK-TencentWeibo-2.6.0.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="7a060ee498fb065bb769b89dd78d63c4a6da2407">
+        <dex dex="/Users/jhqiu/Desktop/paibao/paibao/Paibao/PlayingTreasure/build/intermediates/pre-dexed/release/ShareSDK-TencentWeibo-2.6.0-0628d8c0abbcd5ea1a09e3d6a951fa39fc8946c0.jar" />
     </item>
     <item
         jar="/Users/jhqiu/Desktop/paibao/paibao/Paibao/PlayingTreasure/build/intermediates/exploded-aar/Paibao/android-support-v7-appcompat/unspecified/jars/classes.jar"
@@ -135,46 +177,11 @@
         <dex dex="/Users/jhqiu/Desktop/paibao/paibao/Paibao/PlayingTreasure/build/intermediates/pre-dexed/release/classes-6cd3b1ee082164559ad2e01d09da408712ffb871.jar" />
     </item>
     <item
-        jar="/Users/jhqiu/Desktop/paibao/paibao/Paibao/PlayingTreasure/libs/ShareSDK-Wechat-Favorite-2.5.1.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="6c34454882d0f83d8067b8da008cc551983609c2">
-        <dex dex="/Users/jhqiu/Desktop/paibao/paibao/Paibao/PlayingTreasure/build/intermediates/pre-dexed/release/ShareSDK-Wechat-Favorite-2.5.1-77e23aa21e8734852c15022a7a0e4710297e4deb.jar" />
-    </item>
-    <item
         jar="/Users/jhqiu/Desktop/paibao/paibao/Paibao/PlayingTreasure/libs/gson-2.2.4.jar"
         jumboMode="false"
         revision="21.1.2"
         sha1="973e832af433b44c3ed11c426f2f390b29f3f3f8">
         <dex dex="/Users/jhqiu/Desktop/paibao/paibao/Paibao/PlayingTreasure/build/intermediates/pre-dexed/release/gson-2.2.4-bfe8677c1ddf31d806f33d59eabe7457786eb450.jar" />
-    </item>
-    <item
-        jar="/Users/jhqiu/Desktop/paibao/paibao/Paibao/PlayingTreasure/libs/ShareSDK-Email-2.5.1.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="ab6b7b13f098a710be7a88801de77443d403e691">
-        <dex dex="/Users/jhqiu/Desktop/paibao/paibao/Paibao/PlayingTreasure/build/intermediates/pre-dexed/release/ShareSDK-Email-2.5.1-187985962bc504d815696a4ecf44c1375c1e52e9.jar" />
-    </item>
-    <item
-        jar="/Users/jhqiu/Desktop/paibao/paibao/Paibao/PlayingTreasure/build/intermediates/exploded-aar/Paibao/library2/unspecified/jars/classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="ffb7b83d1c60355ea96bb2e5560288df0df389f8">
-        <dex dex="/Users/jhqiu/Desktop/paibao/paibao/Paibao/PlayingTreasure/build/intermediates/pre-dexed/release/classes-5c40ff41fc4cc44ca0e8d45f4a0089a537107f75.jar" />
-    </item>
-    <item
-        jar="/Users/jhqiu/Desktop/paibao/paibao/Paibao/PlayingTreasure/libs/ShareSDK-Wechat-Moments-2.5.1.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="6d7dc3d1eae4c4a657a4ca3c74fa674360ed919a">
-        <dex dex="/Users/jhqiu/Desktop/paibao/paibao/Paibao/PlayingTreasure/build/intermediates/pre-dexed/release/ShareSDK-Wechat-Moments-2.5.1-2b3ed7d15628da8ee5e0de3273e6896f34d85628.jar" />
-    </item>
-    <item
-        jar="/Users/jhqiu/Desktop/paibao/paibao/Paibao/PlayingTreasure/libs/apache-mime4j-0.6.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="945007627e8d12275d755081a9e609c018e1210d">
-        <dex dex="/Users/jhqiu/Desktop/paibao/paibao/Paibao/PlayingTreasure/build/intermediates/pre-dexed/release/apache-mime4j-0.6-bb84573a4b43bf3812fdce3166c97b75dfb16776.jar" />
     </item>
 
 </items>

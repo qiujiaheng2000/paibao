@@ -39,7 +39,6 @@ import java.util.LinkedList;
 import java.util.List;
 
 import cn.sharesdk.onekeyshare.OnekeyShare;
-import cn.sharesdk.renren.Renren;
 import cn.sharesdk.system.email.Email;
 import cn.sharesdk.tencent.weibo.TencentWeibo;
 import cn.sharesdk.wechat.favorite.WechatFavorite;
@@ -174,8 +173,8 @@ public class ShopActivity extends Activity {
         // 实例化一个OnekeyShare对象
         OnekeyShare oks = new OnekeyShare();
         // 设置Notification的显示图标和显示文字
-        oks.setNotification(R.drawable.icon_app,
-                this.getString(R.string.app_name));
+//        oks.setNotification(R.drawable.icon_app,
+//                this.getString(R.string.app_name));
         // 分享内容的标题
         oks.setTitle(shopName.getText().toString() + " 入驻拍宝");
         // 标题对应的网址，如果没有可以不设置
@@ -198,7 +197,6 @@ public class ShopActivity extends Activity {
         oks.addHiddenPlatform(TencentWeibo.NAME);
         oks.addHiddenPlatform(WechatFavorite.NAME);
         oks.addHiddenPlatform(Email.NAME);
-        oks.addHiddenPlatform(Renren.NAME);
         // 设置是否是直接分享
         oks.setSilent(false);
 

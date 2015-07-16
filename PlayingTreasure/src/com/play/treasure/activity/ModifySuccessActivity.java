@@ -1,9 +1,5 @@
 package com.play.treasure.activity;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.util.HashMap;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -17,20 +13,23 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.mob.tools.utils.UIHandler;
+import com.play.treasure.FrameActivity;
+import com.play.treasure.R;
+
+import java.io.File;
+import java.io.FileOutputStream;
+import java.util.HashMap;
+
 import cn.sharesdk.framework.Platform;
 import cn.sharesdk.framework.ShareSDK;
-import cn.sharesdk.framework.utils.UIHandler;
 import cn.sharesdk.onekeyshare.OnekeyShare;
-import cn.sharesdk.renren.Renren;
 import cn.sharesdk.system.email.Email;
 import cn.sharesdk.tencent.weibo.TencentWeibo;
 import cn.sharesdk.wechat.favorite.WechatFavorite;
-
-import com.play.treasure.FrameActivity;
-import com.play.treasure.R;
 
 public class ModifySuccessActivity extends Activity implements
 		OnClickListener,Callback {
@@ -113,8 +112,8 @@ public class ModifySuccessActivity extends Activity implements
 		// 实例化一个OnekeyShare对象
 		OnekeyShare oks = new OnekeyShare();
 		// 设置Notification的显示图标和显示文字
-		oks.setNotification(R.drawable.icon_app,
-				this.getString(R.string.app_name));
+//		oks.setNotification(R.drawable.icon_app,
+//				this.getString(R.string.app_name));
 		// 分享内容的标题
 		Intent intent = getIntent();
 		//tid = intent.getStringExtra("tid");
@@ -141,7 +140,6 @@ public class ModifySuccessActivity extends Activity implements
 		oks.setEditPageBackground(initPage());
 		oks.addHiddenPlatform(TencentWeibo.NAME);
 		oks.addHiddenPlatform(WechatFavorite.NAME);
-		oks.addHiddenPlatform(Renren.NAME);
 		oks.addHiddenPlatform(Email.NAME);
 		// 设置是否是直接分享
 		oks.setSilent(false);

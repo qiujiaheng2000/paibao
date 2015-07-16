@@ -163,7 +163,7 @@ public final class R {
 		public static final int abc_split_action_bar_is_narrow = 0x7f050002;
 	}
 	public static final class color {
-		public static final int abc_search_url_text_holo = 0x7f060027;
+		public static final int abc_search_url_text_holo = 0x7f06002b;
 		public static final int abc_search_url_text_normal = 0x7f060000;
 		public static final int abc_search_url_text_pressed = 0x7f060002;
 		public static final int abc_search_url_text_selected = 0x7f060001;
@@ -280,11 +280,11 @@ public final class R {
 		public static final int abc_textfield_searchview_holo_light = 0x7f020055;
 		public static final int abc_textfield_searchview_right_holo_dark = 0x7f020056;
 		public static final int abc_textfield_searchview_right_holo_light = 0x7f020057;
-		public static final int default_ptr_flip = 0x7f02009a;
-		public static final int default_ptr_rotate = 0x7f02009b;
-		public static final int indicator_arrow = 0x7f0200c1;
-		public static final int indicator_bg_bottom = 0x7f0200c2;
-		public static final int indicator_bg_top = 0x7f0200c3;
+		public static final int default_ptr_flip = 0x7f02009d;
+		public static final int default_ptr_rotate = 0x7f02009e;
+		public static final int indicator_arrow = 0x7f0200c4;
+		public static final int indicator_bg_bottom = 0x7f0200c5;
+		public static final int indicator_bg_top = 0x7f0200c6;
 	}
 	public static final class id {
 		public static final int action_bar = 0x7f090059;
@@ -394,7 +394,7 @@ public final class R {
 		public static final int abc_search_view = 0x7f030016;
 		public static final int pull_to_refresh_header_horizontal = 0x7f030059;
 		public static final int pull_to_refresh_header_vertical = 0x7f03005a;
-		public static final int support_simple_spinner_dropdown_item = 0x7f03005d;
+		public static final int support_simple_spinner_dropdown_item = 0x7f030063;
 	}
 	public static final class string {
 		public static final int abc_action_bar_home_description = 0x7f0a0001;

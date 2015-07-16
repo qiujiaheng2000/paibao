@@ -1,15 +1,7 @@
 package com.play.treasure.activity;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import android.annotation.SuppressLint;
 import android.app.Activity;
-import android.content.ClipboardManager;
 import android.content.Intent;
 import android.graphics.Color;
 import android.net.Uri;
@@ -17,24 +9,14 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.View;
-import android.view.View.OnClickListener;
-import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
-import cn.sharesdk.framework.ShareSDK;
-import cn.sharesdk.onekeyshare.OnekeyShare;
-import cn.sharesdk.renren.Renren;
-import cn.sharesdk.system.email.Email;
-import cn.sharesdk.tencent.weibo.TencentWeibo;
-import cn.sharesdk.wechat.favorite.WechatFavorite;
 
-import com.google.gson.JsonObject;
 import com.lidroid.xutils.BitmapUtils;
 import com.play.treasure.Functions;
 import com.play.treasure.PlayApplication;
@@ -45,10 +27,22 @@ import com.play.treasure.model.Comment;
 import com.play.treasure.model.PlayDetail;
 import com.play.treasure.network.model.NetworkBean;
 import com.play.treasure.network.model.NetworkBeanArray;
-import com.play.treasure.utils.CommonDialog;
 import com.play.treasure.utils.CommonProgressDialog;
 import com.play.treasure.utils.ToastUtil;
 import com.play.treasure.view.SlideShowView;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import cn.sharesdk.framework.ShareSDK;
+import cn.sharesdk.onekeyshare.OnekeyShare;
+import cn.sharesdk.system.email.Email;
+import cn.sharesdk.tencent.weibo.TencentWeibo;
+import cn.sharesdk.wechat.favorite.WechatFavorite;
 
 /** 
 * @ClassName: PlayDetailActivity
@@ -168,7 +162,7 @@ public class PlayDetailMineActivity extends Activity implements View.OnClickList
 		}
 
 		mList = (ListView) findViewById(R.id.play_detail_comment_list);
-		mList.addHeaderView((View) headView);
+		mList.addHeaderView(headView);
 
 		mAdapter = new CommentAdapter(this);
 		mList.setAdapter(mAdapter);
@@ -550,8 +544,8 @@ public class PlayDetailMineActivity extends Activity implements View.OnClickList
 			// 实例化一个OnekeyShare对象
 			OnekeyShare oks = new OnekeyShare();
 			// 设置Notification的显示图标和显示文字
-			oks.setNotification(R.drawable.icon_app,
-					this.getString(R.string.app_name));
+//			oks.setNotification(R.drawable.icon_app,
+//					this.getString(R.string.app_name));
 			// 分享内容的标题
 			oks.setTitle(TvTitle.getText().toString());
 			// 标题对应的网址，如果没有可以不设置
@@ -577,7 +571,7 @@ public class PlayDetailMineActivity extends Activity implements View.OnClickList
 			oks.addHiddenPlatform(TencentWeibo.NAME);
 			oks.addHiddenPlatform(WechatFavorite.NAME);
 			oks.addHiddenPlatform(Email.NAME);
-			oks.addHiddenPlatform(Renren.NAME);
+//			oks.addHiddenPlatform(Renren.NAME);
 			// 设置是否是直接分享
 			oks.setSilent(false);
 			if (platform != null) {

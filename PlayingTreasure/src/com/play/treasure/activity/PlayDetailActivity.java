@@ -1,12 +1,5 @@
 package com.play.treasure.activity;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
@@ -27,13 +20,6 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import cn.sharesdk.framework.ShareSDK;
-import cn.sharesdk.onekeyshare.OnekeyShare;
-import cn.sharesdk.renren.Renren;
-import cn.sharesdk.system.email.Email;
-import cn.sharesdk.tencent.weibo.TencentWeibo;
-import cn.sharesdk.wechat.favorite.WechatFavorite;
-
 import com.lidroid.xutils.BitmapUtils;
 import com.play.treasure.Functions;
 import com.play.treasure.PlayApplication;
@@ -47,6 +33,22 @@ import com.play.treasure.network.model.NetworkBeanArray;
 import com.play.treasure.utils.CommonProgressDialog;
 import com.play.treasure.utils.ToastUtil;
 import com.play.treasure.view.SlideShowView;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import cn.sharesdk.framework.ShareSDK;
+import cn.sharesdk.onekeyshare.OnekeyShare;
+import cn.sharesdk.sina.weibo.SinaWeibo;
+import cn.sharesdk.system.email.Email;
+import cn.sharesdk.tencent.qq.QQ;
+import cn.sharesdk.tencent.qzone.QZone;
+import cn.sharesdk.tencent.weibo.TencentWeibo;
+import cn.sharesdk.wechat.favorite.WechatFavorite;
 
 /**
  * @author wangchao29
@@ -147,7 +149,7 @@ public class PlayDetailActivity extends Activity implements
         new CommentTask().execute();
         new PlayDetailTask().execute();
         mList = (ListView) findViewById(R.id.play_detail_comment_list);
-        mList.addHeaderView((View) headView);
+        mList.addHeaderView(headView);
 
         mAdapter = new CommentAdapter(this);
         mList.setAdapter(mAdapter);
@@ -581,23 +583,30 @@ public class PlayDetailActivity extends Activity implements
         // 实例化一个OnekeyShare对象
         OnekeyShare oks = new OnekeyShare();
         // 设置Notification的显示图标和显示文字
-        oks.setNotification(R.drawable.icon_app,
-                this.getString(R.string.app_name));
+//        oks.setNotification(R.drawable.icon_app,
+//                this.getString(R.string.app_name));
         // 分享内容的标题
         oks.setTitle(TvTitle.getText().toString());
         // 标题对应的网址，如果没有可以不设置
-        oks.setTitleUrl("http://182.92.240.52/play/apk/paibao.apk");
+//        oks.setTitleUrl("http://182.92.240.52/play/apk/paibao.apk");
+//        oks.setTitleUrl("http://182.92.240.52/play/index.php/Home/Share/index.html?tid=" + mApplication.getTid());
         // 设置分享的文本内容
         oks.setText(product_detail.getText().toString());
         // 设置分享照片的本地路径，如果没有可以不设置
-        oks.setImagePath(bu.getBitmapFileFromDiskCache(mApplication.getImageUrls().get(0)).getAbsolutePath());
+//        try {
+//            oks.setImagePath(bu.getBitmapFileFromDiskCache(mApplication.getImageUrls().get(0)).getAbsolutePath());
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
         // 微信和易信的分享的网络连接，如果没有可以不设置
-        // oks.setUrl("http://sharesdk.cn");
+//         oks.setUrl("http://sharesdk.cn");
+         oks.setUrl("http://182.92.240.52/play/index.php/Home/Share/index.html?tid=" + mApplication.getTid());
         // 人人平台特有的评论字段，如果没有可以不设置
         // imageUrl是图片的网络路径，新浪微博、人人网、QQ空间、
         // 微信的两个平台、Linked-In支持此字段
         oks.setImageUrl(mApplication.getImageUrls().get(0));
-        oks.setComment(owner);
+//        oks.setImageUrl("http://f1.sharesdk.cn/imgs/2014/05/21/oESpJ78_533x800.jpg");
+//        oks.setComment(owner);
         // 令编辑页面显示为Dialog模式
         oks.setDialogMode();
         // 为EditPage设置一个背景的View
@@ -605,7 +614,9 @@ public class PlayDetailActivity extends Activity implements
         oks.addHiddenPlatform(TencentWeibo.NAME);
         oks.addHiddenPlatform(WechatFavorite.NAME);
         oks.addHiddenPlatform(Email.NAME);
-        oks.addHiddenPlatform(Renren.NAME);
+        oks.addHiddenPlatform(SinaWeibo.NAME);
+        oks.addHiddenPlatform(QZone.NAME);
+        oks.addHiddenPlatform(QQ.NAME);
         // 设置是否是直接分享
         oks.setSilent(false);
         if (platform != null) {

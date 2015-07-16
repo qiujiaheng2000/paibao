@@ -12,13 +12,15 @@
         <option name="SELECTED_TEST_ARTIFACT" value="_android_test_" />
         <option name="ASSEMBLE_TASK_NAME" value="assembleRelease" />
         <option name="COMPILE_JAVA_TASK_NAME" value="compileReleaseSources" />
-        <option name="SOURCE_GEN_TASK_NAME" value="generateReleaseSources" />
+        <afterSyncTasks>
+          <task>generateReleaseSources</task>
+        </afterSyncTasks>
         <option name="ALLOW_USER_CONFIGURATION" value="false" />
         <option name="RES_FOLDERS_RELATIVE_PATH" value="file://$MODULE_DIR$/res" />
       </configuration>
     </facet>
   </component>
-  <component name="NewModuleRootManager" inherit-compiler-output="false">
+  <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_6" inherit-compiler-output="false">
     <output url="file://$MODULE_DIR$/build/intermediates/classes/release" />
     <output-test url="file://$MODULE_DIR$/build/intermediates/classes/androidTest/debug" />
     <exclude-output />
@@ -72,26 +74,27 @@
     </content>
     <orderEntry type="jdk" jdkName="Android API 19 Platform" jdkType="Android SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" exported="" name="ShareSDK-QQ-2.5.1" level="project" />
+    <orderEntry type="library" exported="" name="ShareSDK-TencentWeibo-2.6.0" level="project" />
+    <orderEntry type="library" exported="" name="ShareSDK-SinaWeibo-2.6.0" level="project" />
+    <orderEntry type="library" exported="" name="ShareSDK-ShortMessage-2.6.0" level="project" />
     <orderEntry type="library" exported="" name="httpmime-4.0.1" level="project" />
-    <orderEntry type="library" exported="" name="ShareSDK-Email-2.5.1" level="project" />
+    <orderEntry type="library" exported="" name="ShareSDK-Wechat-Favorite-2.6.0" level="project" />
+    <orderEntry type="library" exported="" name="ShareSDK-Wechat-Moments-2.6.0" level="project" />
     <orderEntry type="library" exported="" name="gson-2.2.4" level="project" />
     <orderEntry type="library" exported="" name="apache-mime4j-0.6" level="project" />
-    <orderEntry type="library" exported="" name="ShareSDK-Core-2.5.1" level="project" />
-    <orderEntry type="library" exported="" name="mframework" level="project" />
     <orderEntry type="library" exported="" name="locSDK_5.0" level="project" />
-    <orderEntry type="library" exported="" name="ShareSDK-Wechat-Moments-2.5.1" level="project" />
-    <orderEntry type="library" exported="" name="ShareSDK-Renren-2.5.1" level="project" />
-    <orderEntry type="library" exported="" name="ShareSDK-Douban-2.5.1" level="project" />
-    <orderEntry type="library" exported="" name="ShareSDK-SinaWeibo-2.5.1" level="project" />
-    <orderEntry type="library" exported="" name="ShareSDK-TencentWeibo-2.5.1" level="project" />
-    <orderEntry type="library" exported="" name="ShareSDK-Wechat-2.5.1" level="project" />
+    <orderEntry type="library" exported="" name="mframework" level="project" />
+    <orderEntry type="library" exported="" name="ShareSDK-Wechat-2.6.0" level="project" />
+    <orderEntry type="library" exported="" name="ShareSDK-Wechat-Core-2.6.0" level="project" />
+    <orderEntry type="library" exported="" name="umeng-analytics-v5.5.3" level="project" />
+    <orderEntry type="library" exported="" name="ShareSDK-Email-2.6.0" level="project" />
+    <orderEntry type="library" exported="" name="MobTools" level="project" />
+    <orderEntry type="library" exported="" name="ShareSDK-QZone-2.6.0" level="project" />
+    <orderEntry type="library" exported="" name="ShareSDK-QQ-2.6.0" level="project" />
     <orderEntry type="library" exported="" name="xUtils-2.6.14" level="project" />
-    <orderEntry type="library" exported="" name="ShareSDK-Wechat-Core-2.5.1" level="project" />
+    <orderEntry type="library" exported="" name="ShareSDK-Core-2.6.0" level="project" />
     <orderEntry type="library" exported="" name="picasso-2.4.0" level="project" />
     <orderEntry type="library" exported="" name="universal-image-loader-1.9.3" level="project" />
-    <orderEntry type="library" exported="" name="ShareSDK-QZone-2.5.1" level="project" />
-    <orderEntry type="library" exported="" name="ShareSDK-Wechat-Favorite-2.5.1" level="project" />
     <orderEntry type="module" module-name="android-support-v7-appcompat" exported="" />
     <orderEntry type="module" module-name="ParallaxScroll" exported="" />
     <orderEntry type="module" module-name="library2" exported="" />

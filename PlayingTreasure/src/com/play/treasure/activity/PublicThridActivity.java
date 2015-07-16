@@ -31,7 +31,7 @@ import com.play.treasure.network.model.NetworkBean;
 import com.play.treasure.utils.HttpFileUpTool;
 import com.play.treasure.utils.ProgressDialog;
 import com.play.treasure.utils.ToastUtil;
-
+/**宝贝发起页面*/
 public class PublicThridActivity extends Activity implements OnClickListener {
 	private TextView titleCenter;
 	private ImageView titleLeft;

@@ -29,6 +29,7 @@ import com.play.treasure.NearByActivity;
 import com.play.treasure.R;
 import com.play.treasure.UserActivity;
 import com.play.treasure.activity.LoginActivity;
+import com.umeng.analytics.MobclickAgent;
 
 public class FrameActivity extends ActivityGroup {
 
@@ -279,6 +280,16 @@ public class FrameActivity extends ActivityGroup {
 
         }
     }
+    public void onResume() {
+        super.onResume();
+        MobclickAgent.onResume(this);       //统计时长
+    }
+    public void onPause() {
+        super.onPause();
+        MobclickAgent.onPause(this);
+    }
+
+
 	/*private static Boolean isExit = false;  
     private static Boolean hasTask = false;  
     Timer tExit = new Timer();  
