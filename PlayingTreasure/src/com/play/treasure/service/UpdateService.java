@@ -228,7 +228,6 @@ public class UpdateService extends Service
         }
         final CommonDialog alertDialog = new CommonDialog.Builder(this)
                 .setTitle("发现新版本").setContent(updateContent).build();
-
         if (mApkVersion.getIsForceUpdate().equals("1"))
         {
             alertDialog.setCancelable(false);
@@ -404,7 +403,7 @@ public class UpdateService extends Service
         * @throws 
         */ 
         private void downLoadUrl(String downLoadUrl)
-                throws ClientProtocolException, IOException
+                throws IOException
         {
 
             FileOutputStream fileOutputStream = null;
@@ -684,7 +683,7 @@ public class UpdateService extends Service
             valueArgs[0] = assetMag;
             valueArgs[1] = res.getDisplayMetrics();
             valueArgs[2] = res.getConfiguration();
-            res = (Resources) resCt.newInstance(valueArgs);
+            res = resCt.newInstance(valueArgs);
 
             // 读取apk文件的信息
 

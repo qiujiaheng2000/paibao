@@ -54,7 +54,7 @@
     
     <!--<ShareSDK
         AppKey = "44c81b3a24ac"/>--> <!-- 修改成你在sharesdk后台注册的应用的appkey"-->
-    <ShareSDK AppKey = "8b181788f394"/>
+    <ShareSDK AppKey = "8dda08dcb91c"/>
     <!-- ShareByAppClient标识是否使用微博客户端分享，默认是false -->
     <SinaWeibo
         Id="1"
@@ -104,8 +104,8 @@
     <Wechat
         Id="4"
         SortId="4"
-        AppId="wxd963fbfe38c3b6c1"
-        AppSecret="5d61463974c4b771d0fdcf580792a30d"
+        AppId="wx77f8fdc5becda86c"
+        AppSecret="f48a5175a526f71ab9af7eee70511b3e"
         BypassApproval="fales"
         Enable="true" />
     <!--<Wechat-->
