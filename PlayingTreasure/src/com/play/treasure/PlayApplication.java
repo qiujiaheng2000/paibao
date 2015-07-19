@@ -1,16 +1,11 @@
 package com.play.treasure;
 
-import java.io.File;
-import java.util.LinkedList;
-import java.util.List;
-
 import android.app.Activity;
-import android.app.Application;
 import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager.NameNotFoundException;
-import android.graphics.Bitmap;
 import android.os.Build;
+import android.support.multidex.MultiDexApplication;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.WindowManager;
@@ -21,7 +16,6 @@ import com.baidu.location.BDLocationListener;
 import com.baidu.location.LocationClient;
 import com.baidu.location.LocationClientOption;
 import com.nostra13.universalimageloader.cache.disc.impl.UnlimitedDiscCache;
-import com.nostra13.universalimageloader.cache.disc.impl.ext.LruDiscCache;
 import com.nostra13.universalimageloader.cache.disc.naming.Md5FileNameGenerator;
 import com.nostra13.universalimageloader.cache.memory.MemoryCache;
 import com.nostra13.universalimageloader.cache.memory.impl.LRULimitedMemoryCache;
@@ -36,6 +30,12 @@ import com.play.treasure.network.impl.NetworkApiImpl;
 import com.play.treasure.utils.LogUtil;
 import com.play.treasure.utils.PreferencesUtils;
 
+import java.io.File;
+import java.util.LinkedList;
+import java.util.List;
+
+import cn.smssdk.SMSSDK;
+
 /**
  * 系统全局
  *
@@ -43,7 +43,8 @@ import com.play.treasure.utils.PreferencesUtils;
  * @see [相关类/方法]（可选）
  * @since [产品/模块版本] （可选）
  */
-public class PlayApplication extends Application {
+public class PlayApplication extends MultiDexApplication {
+//public class PlayApplication extends Application {
     private static PlayApplication playApplication;
 
     public static int sw, sh;
@@ -105,7 +106,6 @@ public class PlayApplication extends Application {
     private String distance;
 
     private List<String> imageUrls;
-    ;
 
     public List<String> getImageUrls() {
         return imageUrls;
@@ -216,6 +216,7 @@ public class PlayApplication extends Application {
         } catch (NameNotFoundException e) {
             LogUtil.logException(e);
         }
+        SMSSDK.initSDK(this, "8e7e59187d88", "55e7d23a40594d8f241bc0104fe6b120");
     }
 
     /**

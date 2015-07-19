@@ -7,6 +7,7 @@
       <module fileurl="file://$PROJECT_DIR$/PlayingTreasure/PlayingTreasure.iml" filepath="$PROJECT_DIR$/PlayingTreasure/PlayingTreasure.iml" />
       <module fileurl="file://$PROJECT_DIR$/android-support-v7-appcompat/android-support-v7-appcompat.iml" filepath="$PROJECT_DIR$/android-support-v7-appcompat/android-support-v7-appcompat.iml" />
       <module fileurl="file://$PROJECT_DIR$/library2/library2.iml" filepath="$PROJECT_DIR$/library2/library2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sMSSDK/sMSSDK.iml" filepath="$PROJECT_DIR$/sMSSDK/sMSSDK.iml" />
     </modules>
   </component>
 </project>
