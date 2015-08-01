@@ -39,12 +39,16 @@ import java.util.LinkedList;
 import java.util.List;
 
 import cn.sharesdk.onekeyshare.OnekeyShare;
+import cn.sharesdk.sina.weibo.SinaWeibo;
 import cn.sharesdk.system.email.Email;
+import cn.sharesdk.tencent.qq.QQ;
+import cn.sharesdk.tencent.qzone.QZone;
 import cn.sharesdk.tencent.weibo.TencentWeibo;
 import cn.sharesdk.wechat.favorite.WechatFavorite;
 
 public class ShopActivity extends Activity {
     private String uid;
+    private String tid;
     private StaggeredGridView mGridView;
     private WaterfallAdapter mAdapter;
     private PlayApplication mApplication;
@@ -79,6 +83,7 @@ public class ShopActivity extends Activity {
 
 
         uid = getIntent().getStringExtra("uid");
+        tid = getIntent().getStringExtra("tid");
 
         mHeaderView = getLayoutInflater().inflate(R.layout.activity_shop_header, null);
 
@@ -178,11 +183,16 @@ public class ShopActivity extends Activity {
         // 分享内容的标题
         oks.setTitle(shopName.getText().toString() + " 入驻拍宝");
         // 标题对应的网址，如果没有可以不设置
-        oks.setTitleUrl("http://182.92.240.52/play/apk/paibao.apk");
+//        oks.setTitleUrl("http://182.92.240.52/play/apk/paibao.apk");
         // 设置分享的文本内容
+        oks.setUrl("http://182.92.240.52/play/index.php/Home/Share/index.html?tid=" + mApplication.getTid());
+        // 人人平台特有的评论字段，如果没有可以不设置
+        // imageUrl是图片的网络路径，新浪微博、人人网、QQ空间、
+        // 微信的两个平台、Linked-In支持此字段
+        oks.setImageUrl(mApplication.getImageUrls().get(0));
         oks.setText(shopInfo.getText().toString());
         // 设置分享照片的本地路径，如果没有可以不设置
-        oks.setImagePath(PublicSuccessActivity.TEST_IMAGE);
+//        oks.setImagePath(PublicSuccessActivity.TEST_IMAGE);
         // 微信和易信的分享的网络连接，如果没有可以不设置
         // oks.setUrl("http://sharesdk.cn");
         // 人人平台特有的评论字段，如果没有可以不设置
@@ -194,9 +204,13 @@ public class ShopActivity extends Activity {
         oks.setDialogMode();
         // 为EditPage设置一个背景的View
         // oks.setEditPageBackground(initPage());
+        // 为EditPage设置一个背景的View
         oks.addHiddenPlatform(TencentWeibo.NAME);
         oks.addHiddenPlatform(WechatFavorite.NAME);
         oks.addHiddenPlatform(Email.NAME);
+        oks.addHiddenPlatform(SinaWeibo.NAME);
+        oks.addHiddenPlatform(QZone.NAME);
+        oks.addHiddenPlatform(QQ.NAME);
         // 设置是否是直接分享
         oks.setSilent(false);
 

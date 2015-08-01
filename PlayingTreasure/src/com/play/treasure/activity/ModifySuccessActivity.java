@@ -27,7 +27,10 @@ import java.util.HashMap;
 import cn.sharesdk.framework.Platform;
 import cn.sharesdk.framework.ShareSDK;
 import cn.sharesdk.onekeyshare.OnekeyShare;
+import cn.sharesdk.sina.weibo.SinaWeibo;
 import cn.sharesdk.system.email.Email;
+import cn.sharesdk.tencent.qq.QQ;
+import cn.sharesdk.tencent.qzone.QZone;
 import cn.sharesdk.tencent.weibo.TencentWeibo;
 import cn.sharesdk.wechat.favorite.WechatFavorite;
 
@@ -137,10 +140,13 @@ public class ModifySuccessActivity extends Activity implements
 		// 令编辑页面显示为Dialog模式
 		oks.setDialogMode();
 		// 为EditPage设置一个背景的View
-		oks.setEditPageBackground(initPage());
+		// 为EditPage设置一个背景的View
 		oks.addHiddenPlatform(TencentWeibo.NAME);
 		oks.addHiddenPlatform(WechatFavorite.NAME);
 		oks.addHiddenPlatform(Email.NAME);
+		oks.addHiddenPlatform(SinaWeibo.NAME);
+		oks.addHiddenPlatform(QZone.NAME);
+		oks.addHiddenPlatform(QQ.NAME);
 		// 设置是否是直接分享
 		oks.setSilent(false);
 		if (platform != null) {

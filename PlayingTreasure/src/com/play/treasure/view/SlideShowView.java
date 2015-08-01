@@ -74,6 +74,17 @@ public class SlideShowView extends LinearLayout {
 
     private BitmapUtils bitmapUtils;
     private DisplayImageOptions options;
+
+    public Handler getHandlerParentView() {
+        return mHandlerParentView;
+    }
+
+    public void setHandlerParentView(Handler handlerParentView) {
+        mHandlerParentView = handlerParentView;
+    }
+
+    private Handler mHandlerParentView;
+
     @SuppressLint("HandlerLeak")
     private Handler handler = new Handler() {
         @Override
@@ -210,7 +221,7 @@ public class SlideShowView extends LinearLayout {
                     //设置矩阵
                     imageView1.setImageMatrix(imgMatrix);
                     FadeInBitmapDisplayer.animate(imageView1, 300);
-                    Message msg = PlayDetailActivity.mHanlder.obtainMessage();
+                    Message msg = mHandlerParentView.obtainMessage();
                     msg.what = 1;
                     msg.arg1 = height;
                     msg.sendToTarget();
@@ -284,10 +295,10 @@ public class SlideShowView extends LinearLayout {
             currentItem = pos;
             for (int i = 0; i < dotViewsList.size(); i++) {
                 if (i == pos) {
-                    ((View) dotViewsList.get(pos))
+                    dotViewsList.get(pos)
                             .setBackgroundResource(R.drawable.dot_focus);
                 } else {
-                    ((View) dotViewsList.get(i))
+                    dotViewsList.get(i)
                             .setBackgroundResource(R.drawable.dot_blur);
                 }
             }

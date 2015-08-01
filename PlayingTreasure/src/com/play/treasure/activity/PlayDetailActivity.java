@@ -200,7 +200,7 @@ public class PlayDetailActivity extends Activity implements
 
 
         };
-
+        mView.setHandlerParentView(mHanlder);
         mView.setLayoutParams(new LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.MATCH_PARENT,
                 LinearLayout.LayoutParams.WRAP_CONTENT));
@@ -637,6 +637,7 @@ public class PlayDetailActivity extends Activity implements
     public void enterShop(View v) {
         Intent intent = new Intent(this, ShopActivity.class);
         intent.putExtra("uid", uid);
+        intent.putExtra("tid",  mApplication.getTid());
         startActivity(intent);
     }
 }

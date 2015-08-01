@@ -73,6 +73,7 @@
         android:background="@drawable/top_title_bar"
         android:textColor="#ffffff"
         android:textSize="18sp"
+        android:visibility="gone"
         android:onClick="shopDisplay"
         />
 

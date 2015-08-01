@@ -5,7 +5,7 @@ dependencies {
     compile files('libs/umeng-analytics-v5.5.3.jar')
     compile project(':android-support-v7-appcompat')
     compile project(':library2')
-    compile 'com.android.support:multidex:1.0.0'
+//    compile 'com.android.support:multidex:1.0.0'
     compile files('libs/MobTools.jar')
     compile project(':sMSSDK')
 }
@@ -58,7 +58,7 @@ android {
     buildTypes {
         release {
             debuggable true
-            multiDexEnabled true
+//            multiDexEnabled true
             signingConfig signingConfigs.release
             minifyEnabled false
             proguardFile 'proguard-project.txt'

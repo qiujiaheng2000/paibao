@@ -1,11 +1,11 @@
 package com.play.treasure;
 
 import android.app.Activity;
+import android.app.Application;
 import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.os.Build;
-import android.support.multidex.MultiDexApplication;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.WindowManager;
@@ -43,8 +43,8 @@ import cn.smssdk.SMSSDK;
  * @see [相关类/方法]（可选）
  * @since [产品/模块版本] （可选）
  */
-public class PlayApplication extends MultiDexApplication {
-//public class PlayApplication extends Application {
+//public class PlayApplication extends MultiDexApplication {
+public class PlayApplication extends Application {
     private static PlayApplication playApplication;
 
     public static int sw, sh;
