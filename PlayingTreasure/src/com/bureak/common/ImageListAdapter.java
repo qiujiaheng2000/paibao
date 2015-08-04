@@ -1,35 +1,26 @@
 package com.bureak.common;
 
-import java.util.ArrayList;
-
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.support.v4.app.FragmentActivity;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.AdapterView.OnItemClickListener;
 
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
-import com.nostra13.universalimageloader.core.assist.FailReason;
 import com.nostra13.universalimageloader.core.display.FadeInBitmapDisplayer;
-import com.nostra13.universalimageloader.core.display.RoundedBitmapDisplayer;
-import com.nostra13.universalimageloader.core.display.SimpleBitmapDisplayer;
-import com.nostra13.universalimageloader.core.listener.ImageLoadingListener;
-import com.play.treasure.Functions;
 import com.play.treasure.PlayApplication;
 import com.play.treasure.R;
 import com.play.treasure.activity.PlayDetailActivity;
 import com.play.treasure.model.Waterfall;
 import com.play.treasure.network.NetworkConfig;
-import com.squareup.picasso.Picasso;
+
+import java.util.ArrayList;
 
 public class ImageListAdapter extends IncreaseAdatper<Waterfall> implements
         OnItemClickListener {
@@ -38,12 +29,12 @@ public class ImageListAdapter extends IncreaseAdatper<Waterfall> implements
     private PlayApplication mApplication;
     private DisplayImageOptions options;
 
-    public ImageListAdapter(FragmentActivity activity,
+    public ImageListAdapter(Context activity,
                             ArrayList<Waterfall> mImageList) {
         super(mImageList);
         this.mApplication = PlayApplication.getApplication();
         this.mContext = activity;
-        int screenWidth = UiUtils.getScreenWidthAndSizeInPx(activity)[0];
+        int screenWidth = UiUtils.getScreenWidthAndSizeInPx((Activity) activity)[0];
         itemWidth = (screenWidth / 2 - 20);
         options = new DisplayImageOptions.Builder()
                 .showImageForEmptyUri(R.drawable.default_icon)
